@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 
 class home extends StatefulWidget {
@@ -26,7 +23,43 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     Widget displayMenu(int index){
-      return Car
+      return Padding(
+        padding: const EdgeInsets.only(right:12.0),
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              currentMenu=index;
+            });
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                colors: (currentMenu==index)?[
+                  Colors.red[200],
+                  Colors.red[300],
+                  Colors.red[400],
+                ]:
+                [
+                  Colors.white,
+                Colors.white,
+                ],
+              )
+            ),
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.only(top:10.0,bottom: 10,right: 16,left: 16),
+                child: Text(menu[index],style: TextStyle(
+                  fontSize: displayWidth(context)*0.036,
+                  fontWeight: FontWeight.bold,
+                  color: (currentMenu==index)?Colors.white:Colors.black54,
+                ),),
+              ),
+            ),
+          ),
+        ),
+      );
     }
     return Scaffold(
       body: SafeArea(
@@ -73,12 +106,13 @@ class _homeState extends State<home> {
                 Positioned(
                   top: displayHeight(context) * 0.23,
                   child: Container(
-                    height: displayHeight(context) * 0.08,
+                    height: displayHeight(context) * 0.05,
                     width: displayWidth(context) * 0.95,
-                    color: Colors.black87,
+                    //color: Colors.black87,
                     child: ListView.builder(itemBuilder: (context, index) {
-                      return
+                      return displayMenu(index);
                     },
+                      scrollDirection: Axis.horizontal,
                       itemCount: menu.length,
                     ),
                   ),
