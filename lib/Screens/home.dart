@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
+import 'package:naruto_the_ninja_way/Screens/characterScreen.dart';
 
 class home extends StatefulWidget {
   @override
@@ -19,12 +20,16 @@ class _homeState extends State<home> {
     'Spirits',
     'Summonings',
   ];
+  final List<dynamic> screens = [
+    characterScreen(),
+
+  ];
 
   @override
   Widget build(BuildContext context) {
     Widget displayMenu(int index){
       return Padding(
-        padding: const EdgeInsets.only(right:12.0),
+        padding: const EdgeInsets.only(right:6.0),
         child: GestureDetector(
           onTap: () {
             setState(() {
@@ -80,7 +85,7 @@ class _homeState extends State<home> {
                       fit: BoxFit.cover),
                 ),
                 Positioned(
-                    top: displayHeight(context) * 0.02,
+                    top: displayHeight(context) * 0.03,
                     left: displayWidth(context) * 0.37,
                     child: Container(
                       height: displayHeight(context) * 0.15,
@@ -92,19 +97,19 @@ class _homeState extends State<home> {
                         children: [
                           Image.asset(
                             'images/general/heading.png',
-                            height: displayHeight(context) * 0.042,
+                            height: displayHeight(context) * 0.045,
                             fit: BoxFit.fitWidth,
                           ),
                           Image.asset(
                             'images/general/subHeading.png',
-                            height: displayHeight(context) * 0.041,
+                            height: displayHeight(context) * 0.0425,
                             fit: BoxFit.fitWidth,
                           ),
                         ],
                       ),
                     )),
                 Positioned(
-                  top: displayHeight(context) * 0.23,
+                  top: displayHeight(context) * 0.24,
                   child: Container(
                     height: displayHeight(context) * 0.05,
                     width: displayWidth(context) * 0.95,
@@ -117,6 +122,9 @@ class _homeState extends State<home> {
                     ),
                   ),
                 ),
+                Positioned(
+                  top: displayHeight(context)*0.315,
+                  child: screens[currentMenu],),
               ],
             ),
           )),
