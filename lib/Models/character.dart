@@ -10,7 +10,7 @@ class character {
   final String quote;
   final String signatureMove;
   final String caseStudy;
-  final List<Image> images;
+  final List<String> images;
 
   character({
     this.name,
