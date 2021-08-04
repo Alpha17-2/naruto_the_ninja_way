@@ -3,23 +3,25 @@ import 'package:flutter/cupertino.dart';
 class character {
   final String name;
   final String village;
+  final String sex;
   final String rank;
   final String age;
   final String firstAppearance;
   final String quote;
   final String signatureMove;
-  final Image image;
+  final String caseStudy;
+  final List<Image> images;
 
-  character(
-    {
-      this.name,
-      this.village,
-      this.rank,
-      this.age,
-      this.firstAppearance,
-      this.quote,
-      this.signatureMove,
-      this.image,
-    }
-  );
+  character({
+    this.name,
+    this.sex,
+    this.caseStudy,
+    this.village,
+    this.rank,
+    this.age,
+    this.firstAppearance,
+    this.quote,
+    this.signatureMove,
+    this.images,
+  });
 }
