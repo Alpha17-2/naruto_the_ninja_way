@@ -1,5 +1,4 @@
 import 'package:naruto_the_ninja_way/Models/character.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 
