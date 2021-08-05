@@ -12,6 +12,7 @@ class listOfCharacters extends ChangeNotifier{
       noticeableFeature: 'images/characters/Shino5.png',
       rank: "Chunin",
       village: "Leaf",
+      villageSymbol: "images/villages/leaf.jpg",
       firstAppearance: "Episode 1",
       sex: "Male",
       signatureMove: "Kikaichuu no Jutsu",

@@ -78,17 +78,18 @@ class _characterScreenState extends State<characterScreen> {
               ),
             ),
             Positioned(
-              top: displayHeight(context)*0.1,
+              top: displayHeight(context)*0.08,
                 child: Container(
               height: displayHeight(context)*0.58,
               width: displayWidth(context)*0.9,
-              color: Colors.black45,
+              //color: Colors.black45,
                   child: Padding(
                     padding: const EdgeInsets.all(0.0),
                     child: ListView.builder(
-                      padding: EdgeInsets.only(top: 12.0),
+                      padding: EdgeInsets.only(top: 0.0),
                       itemBuilder: (context, index) {
                       return displaySingleCharacter(
+                        villageSymbol: charactersProvider.ListOfCharacters[index].villageSymbol,
                         clan: charactersProvider.ListOfCharacters[index].clan,
                         noticeableFeature: charactersProvider.ListOfCharacters[index].noticeableFeature,
                           age: charactersProvider.ListOfCharacters[index].age,

@@ -13,9 +13,11 @@ class character {
   final String caseStudy;
   final List<String> images;
   final String noticeableFeature;
+  final String villageSymbol;
 
   character({
     this.name,
+    this.villageSymbol,
     this.clan,
     this.noticeableFeature,
     this.sex,

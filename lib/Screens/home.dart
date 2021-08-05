@@ -85,11 +85,11 @@ class _homeState extends State<home> {
                       fit: BoxFit.cover),
                 ),
                 Positioned(
-                    top: displayHeight(context) * 0.03,
+                    top: displayHeight(context) * 0.05,
                     left: displayWidth(context) * 0.37,
                     child: Container(
-                      height: displayHeight(context) * 0.15,
-                      width: displayWidth(context) * 0.575,
+                      height: displayHeight(context) * 0.18,
+                      width: displayWidth(context) * 0.57,
                       //color: Colors.black87,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
