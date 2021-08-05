@@ -7,7 +7,9 @@ class listOfCharacters extends ChangeNotifier{
   final List<character> characters=[
     character(
       name: "Aburame Shino",
+      clan: "Aburame",
       age: "16",
+      noticeableFeature: 'images/characters/Shino5.png',
       rank: "Chunin",
       village: "Leaf",
       firstAppearance: "Episode 1",

@@ -89,6 +89,8 @@ class _characterScreenState extends State<characterScreen> {
                       padding: EdgeInsets.only(top: 12.0),
                       itemBuilder: (context, index) {
                       return displaySingleCharacter(
+                        clan: charactersProvider.ListOfCharacters[index].clan,
+                        noticeableFeature: charactersProvider.ListOfCharacters[index].noticeableFeature,
                           age: charactersProvider.ListOfCharacters[index].age,
                           caseStudy: charactersProvider.ListOfCharacters[index].caseStudy,
                           firstAppearance: charactersProvider.ListOfCharacters[index].firstAppearance,
@@ -99,6 +101,7 @@ class _characterScreenState extends State<characterScreen> {
                           sex: charactersProvider.ListOfCharacters[index].sex,
                           signatureMove: charactersProvider.ListOfCharacters[index].signatureMove,
                           village: charactersProvider.ListOfCharacters[index].village,
+                          
                       );
                     },
                       itemCount: charactersProvider.ListOfCharacters.length,
