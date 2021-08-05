@@ -34,11 +34,11 @@ class displaySingleCharacter extends StatelessWidget {
     this.images,
   });
 
-  final Map<String,Color> rankColors = {
-    'Genin':Colors.green[600],
-    'Chunin' : Colors.blue[800],
-    'Jounin' : Colors.purple[800],
-    'Kage' : Colors.red[700],
+  final Map<String, Color> rankColors = {
+    'Genin': Colors.green[600],
+    'Chunin': Colors.blue[800],
+    'Jounin': Colors.purple[800],
+    'Kage': Colors.red[700],
   };
 
   @override
@@ -63,7 +63,7 @@ class displaySingleCharacter extends StatelessWidget {
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
                         child: Image.asset(
-                          images[3],
+                          images[images.length-1],
                           fit: BoxFit.cover,
                         ))),
               )),
@@ -142,32 +142,46 @@ class displaySingleCharacter extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text(village,style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: displayWidth(context)*0.0385,
-                                fontWeight: FontWeight.bold
-                              ),),
-                              Image.asset(villageSymbol,width: displayWidth(context)*0.06,fit: BoxFit.contain,),
+                              Text(
+                                village,
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: displayWidth(context) * 0.0385,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Image.asset(
+                                villageSymbol,
+                                width: displayWidth(context) * 0.06,
+                                fit: BoxFit.contain,
+                              ),
                             ],
                           ),
                         ],
                       ),
                       RichText(
-                        text: TextSpan(
-                          style: TextStyle(color: Colors.black54,fontSize: displayWidth(context)*0.0385,fontWeight: FontWeight.bold),
-                        children: [
-                          TextSpan(text: "Age : "),
-                          TextSpan(text: age,style: TextStyle(color: Colors.black)),
-                        ]
-                      )),
+                          text: TextSpan(
+                              style: TextStyle(
+                                  color: Colors.black54,
+                                  fontSize: displayWidth(context) * 0.0385,
+                                  fontWeight: FontWeight.bold),
+                              children: [
+                            TextSpan(text: "Age : "),
+                            TextSpan(
+                                text: age,
+                                style: TextStyle(color: Colors.black)),
+                          ])),
                       RichText(
-                        text: TextSpan(
-                          style: TextStyle(color: Colors.black54,fontSize: displayWidth(context)*0.0385,fontWeight: FontWeight.bold),
-                        children: [
-                          TextSpan(text: "Rank : "),
-                          TextSpan(text: rank,style: TextStyle(color: rankColors[rank])),
-                        ]
-                      ))
+                          text: TextSpan(
+                              style: TextStyle(
+                                  color: Colors.black54,
+                                  fontSize: displayWidth(context) * 0.0385,
+                                  fontWeight: FontWeight.bold),
+                              children: [
+                            TextSpan(text: "Rank : "),
+                            TextSpan(
+                                text: rank,
+                                style: TextStyle(color: rankColors[rank])),
+                          ]))
                     ],
                   ),
                 ),

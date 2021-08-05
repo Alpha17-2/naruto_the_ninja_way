@@ -35,7 +35,7 @@ class _characterScreenState extends State<characterScreen> {
     return Container(
       height: displayHeight(context) * 0.7,
       width: displayWidth(context),
-     // color: Colors.red,
+   //  color: Colors.red,
       child: Padding(
         padding: EdgeInsets.only(left: 10.0,right: 10.0),
         child: Stack(
@@ -78,38 +78,39 @@ class _characterScreenState extends State<characterScreen> {
               ),
             ),
             Positioned(
-              top: displayHeight(context)*0.08,
+              top: displayHeight(context)*0.073,
                 child: Container(
-              height: displayHeight(context)*0.58,
+              height: displayHeight(context)*0.615,
               width: displayWidth(context)*0.9,
-              //color: Colors.black45,
-                  child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: ListView.builder(
+             // color: Colors.black45,
+                  child: ListView.builder(
                       padding: EdgeInsets.only(top: 0.0),
                       itemBuilder: (context, index) {
-                      return displaySingleCharacter(
-                        villageSymbol: charactersProvider.ListOfCharacters[index].villageSymbol,
-                        clan: charactersProvider.ListOfCharacters[index].clan,
-                        noticeableFeature: charactersProvider.ListOfCharacters[index].noticeableFeature,
-                          age: charactersProvider.ListOfCharacters[index].age,
-                          caseStudy: charactersProvider.ListOfCharacters[index].caseStudy,
-                          firstAppearance: charactersProvider.ListOfCharacters[index].firstAppearance,
-                          images: charactersProvider.ListOfCharacters[index].images,
-                          name: charactersProvider.ListOfCharacters[index].name,
-                          quote: charactersProvider.ListOfCharacters[index].quote,
-                          rank: charactersProvider.ListOfCharacters[index].rank,
-                          sex: charactersProvider.ListOfCharacters[index].sex,
-                          signatureMove: charactersProvider.ListOfCharacters[index].signatureMove,
-                          village: charactersProvider.ListOfCharacters[index].village,
-                          
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom:8.0),
+                        child: displaySingleCharacter(
+                          villageSymbol: charactersProvider.ListOfCharacters[index].villageSymbol,
+                          clan: charactersProvider.ListOfCharacters[index].clan,
+                          noticeableFeature: charactersProvider.ListOfCharacters[index].noticeableFeature,
+                            age: charactersProvider.ListOfCharacters[index].age,
+                            caseStudy: charactersProvider.ListOfCharacters[index].caseStudy,
+                            firstAppearance: charactersProvider.ListOfCharacters[index].firstAppearance,
+                            images: charactersProvider.ListOfCharacters[index].images,
+                            name: charactersProvider.ListOfCharacters[index].name,
+                            quote: charactersProvider.ListOfCharacters[index].quote,
+                            rank: charactersProvider.ListOfCharacters[index].rank,
+                            sex: charactersProvider.ListOfCharacters[index].sex,
+                            signatureMove: charactersProvider.ListOfCharacters[index].signatureMove,
+                            village: charactersProvider.ListOfCharacters[index].village,
+
+                        ),
                       );
                     },
                       itemCount: charactersProvider.ListOfCharacters.length,
                     ),
                   ),
 
-            ))
+            ),
           ],
         ),
       ),
