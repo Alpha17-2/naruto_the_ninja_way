@@ -68,7 +68,7 @@ class _homeState extends State<home> {
     }
     return Scaffold(
       body: SafeArea(
-          top: false,
+          top: true,
           child: Container(
             height: displayHeight(context),
             width: displayWidth(context),
@@ -78,18 +78,18 @@ class _homeState extends State<home> {
               children: [
                 Positioned(
                   top: displayHeight(context) * 0.02,
-                  left: displayWidth(context) * 0.03,
-                  child: Image.asset('images/general/b.png',
-                      height: displayHeight(context) * 0.2,
-                      width: displayWidth(context) * 0.3,
+                  left: displayWidth(context) * 0.05,
+                  child: Image.asset('images/general/intro.png',
+                      height: displayHeight(context) * 0.15,
+                     // width: displayWidth(context) * 0.3,
                       fit: BoxFit.cover),
                 ),
                 Positioned(
-                    top: displayHeight(context) * 0.03,
+                    top: 0,
                     left: displayWidth(context) * 0.37,
                     child: Container(
-                      height: displayHeight(context) * 0.15,
-                      width: displayWidth(context) * 0.575,
+                      height: displayHeight(context) * 0.18,
+                      width: displayWidth(context) * 0.57,
                       //color: Colors.black87,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -109,11 +109,11 @@ class _homeState extends State<home> {
                       ),
                     )),
                 Positioned(
-                  top: displayHeight(context) * 0.24,
+                  top: displayHeight(context) * 0.19,
                   child: Container(
                     height: displayHeight(context) * 0.05,
                     width: displayWidth(context) * 0.95,
-                    //color: Colors.black87,
+                   // color: Colors.black87,
                     child: ListView.builder(itemBuilder: (context, index) {
                       return displayMenu(index);
                     },
@@ -123,7 +123,7 @@ class _homeState extends State<home> {
                   ),
                 ),
                 Positioned(
-                  top: displayHeight(context)*0.315,
+                  top: displayHeight(context)*0.27,
                   child: screens[currentMenu],),
               ],
             ),
