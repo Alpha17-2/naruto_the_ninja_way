@@ -92,10 +92,10 @@ class _homeState extends State<home> {
               alignment: Alignment.center,
               children: [
                 Positioned(
-                  top: displayHeight(context) * 0.02,
+                  top: displayHeight(context) * 0.01,
                   left: displayWidth(context) * 0.05,
                   child: Image.asset('images/general/intro.png',
-                      height: displayHeight(context) * 0.15,
+                      height: displayHeight(context) * 0.145,
                      // width: displayWidth(context) * 0.3,
                       fit: BoxFit.cover),
                 ),
@@ -124,7 +124,7 @@ class _homeState extends State<home> {
                       ),
                     )),
                 Positioned(
-                  top: displayHeight(context) * 0.19,
+                  top: displayHeight(context) * 0.1775,
                   child: Container(
                     height: displayHeight(context) * 0.05,
                     width: displayWidth(context) * 0.95,
@@ -138,7 +138,7 @@ class _homeState extends State<home> {
                   ),
                 ),
                 Positioned(
-                  top: displayHeight(context)*0.27,
+                  top: displayHeight(context)*0.25,
                   child: screens[currentMenu],),
               ],
             ),

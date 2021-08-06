@@ -44,7 +44,27 @@ class listOfCharacters extends ChangeNotifier{
       signatureMove: "NA",
       village: "Leaf",
       villageSymbol: "images/villages/leaf.jpg",
-    )
+    ),
+
+    character(
+      age: "NA",
+      caseStudy: "Aburame Torune is an ANBU Root member in Hidden Leaf Village. He attended the five Kage summit with Danzou. Because masks were not allowed at the summit, Torune had to go in his normal clothing. He and Fuu are regarded as the most skilled Root members.",
+      clan: "Aburame",
+      firstAppearance: "Shippuuden Episode 198",
+      images: [
+          'images/characters/Torune1.png',
+        'images/characters/Torune2.jpg'
+      ],
+      name: "Aburame Torune",
+      noticeableFeature: 'images/characters/Torune3.jpg',
+      quote: "NA",
+      rank: "Anbu",
+      sex: "Male",
+      signatureMove: "NA",
+      village: "Leaf",
+      villageSymbol: "images/villages/leaf.jpg",
+    ),
+
   ];
 
   List<character> get ListOfCharacters {

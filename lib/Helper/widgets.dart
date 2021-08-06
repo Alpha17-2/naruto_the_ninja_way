@@ -38,6 +38,7 @@ class displaySingleCharacter extends StatelessWidget {
     'Genin': Colors.green[600],
     'Chunin': Colors.blue[800],
     'Jounin': Colors.purple[800],
+    'Anbu' : Colors.orange[800],
     'Kage': Colors.red[700],
   };
 
@@ -68,6 +69,7 @@ class displaySingleCharacter extends StatelessWidget {
                         ))),
               )),
           Positioned(
+            // transparent image 1 standing
               top: -5,
               left: 0,
               child: Image.asset(
