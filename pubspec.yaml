@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^5.0.0
   flutter_spinkit: "^4.1.2"
   animated_text_kit: ^4.2.1
   ionicons: ^0.1.2
