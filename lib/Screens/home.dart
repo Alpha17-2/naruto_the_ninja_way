@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 import 'package:naruto_the_ninja_way/Screens/characterScreen.dart';
+import 'package:naruto_the_ninja_way/Screens/clanScreen.dart';
+import 'package:naruto_the_ninja_way/Screens/rankScreen.dart';
 
 class home extends StatefulWidget {
   @override
@@ -22,6 +24,8 @@ class _homeState extends State<home> {
   ];
   final List<dynamic> screens = [
     characterScreen(),
+    clanScreeen(),
+    rankScreen(),
 
   ];
 
