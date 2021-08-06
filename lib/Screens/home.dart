@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 import 'package:naruto_the_ninja_way/Screens/characterScreen.dart';
+import 'package:naruto_the_ninja_way/Screens/clanScreen.dart';
+import 'package:naruto_the_ninja_way/Screens/ninjaGearScreen.dart';
+import 'package:naruto_the_ninja_way/Screens/rankScreen.dart';
+import 'akatsukiScreen.dart';
+import 'jinchurikiScreen.dart';
+import 'jutsuScreen.dart';
+import 'spiritScreen.dart';
+import 'summoningScreen.dart';
 
 class home extends StatefulWidget {
   @override
@@ -22,7 +30,14 @@ class _homeState extends State<home> {
   ];
   final List<dynamic> screens = [
     characterScreen(),
-
+    clanScreeen(),
+    rankScreen(),
+    ninjaGearScreen(),
+    jutsuScreen(),
+    akatsukiScreen(),
+    jinchurikiScreen(),
+    spiritScreen(),
+    summoningScreen(),
   ];
 
   @override
