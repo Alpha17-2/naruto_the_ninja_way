@@ -20,6 +20,8 @@ class listOfCharacters {
           'images/characters/Shino1.png',
           'images/characters/Shino2.png',
           'images/characters/Shino3.png',
+          'images/characters/Shino6.png',
+          'images/characters/Shino7.png',
           'images/characters/Shino4.jpg',
         ],
         caseStudy:
