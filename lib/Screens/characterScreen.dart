@@ -111,24 +111,7 @@ class _characterScreenState extends State<characterScreen> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
-                            child: displaySingleCharacter(
-                              villageSymbol:
-                                  displayCharacterList[index].villageSymbol,
-                              noticeableFeature:
-                                  displayCharacterList[index].noticeableFeature,
-                              clan: displayCharacterList[index].clan,
-                              age: displayCharacterList[index].age,
-                              caseStudy: displayCharacterList[index].caseStudy,
-                              firstAppearance:
-                                  displayCharacterList[index].firstAppearance,
-                              images: displayCharacterList[index].images,
-                              quote: displayCharacterList[index].quote,
-                              rank: displayCharacterList[index].rank,
-                              sex: displayCharacterList[index].sex,
-                              signatureMove:
-                                  displayCharacterList[index].signatureMove,
-                              village: displayCharacterList[index].village,
-                              name: displayCharacterList[index].name,
+                            child: displaySingleCharacter(characterIndex: index,
                             ),
                           );
                         },
