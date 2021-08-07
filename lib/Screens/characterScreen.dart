@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 import 'package:naruto_the_ninja_way/Helper/widgets.dart';
+import 'package:naruto_the_ninja_way/Models/character.dart';
 import 'package:naruto_the_ninja_way/Providers/listOfCharacters.dart';
-import 'package:provider/provider.dart';
 
 class characterScreen extends StatefulWidget {
   @override
@@ -14,14 +14,17 @@ class characterScreen extends StatefulWidget {
 class _characterScreenState extends State<characterScreen> {
   final _searchCharacterKey = GlobalKey<FormState>();
   TextEditingController searchCharacterController;
-
+  List<character> _list = listOfCharacters().allCharacters;
+  List<character> displayCharacterList;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     searchCharacterController = TextEditingController();
+    displayCharacterList = _list;
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -31,13 +34,12 @@ class _characterScreenState extends State<characterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final charactersProvider =  Provider.of<listOfCharacters>(context);
     return Container(
       height: displayHeight(context) * 0.7,
       width: displayWidth(context),
-   //  color: Colors.red,
+      //  color: Colors.red,
       child: Padding(
-        padding: EdgeInsets.only(left: 10.0,right: 10.0),
+        padding: EdgeInsets.only(left: 10.0, right: 10.0),
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -53,11 +55,28 @@ class _characterScreenState extends State<characterScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: TextFormField(
+                    onChanged: (value) {
+                      List<character> temp = [];
+                      if (value.isEmpty ||
+                          value == null ||
+                          value.length == 0 ||
+                          value == '')
+                        temp = _list;
+                      else
+                        temp = _list
+                            .where((element) => element.name
+                                .toLowerCase()
+                                .contains(value.toLowerCase()))
+                            .toList();
+                      setState(() {
+                        displayCharacterList = temp;
+                        print(displayCharacterList.toString());
+                      });
+                    },
                     toolbarOptions: ToolbarOptions(
                         copy: true, cut: true, selectAll: true, paste: true),
                     controller: searchCharacterController,
                     autofocus: false,
-
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         icon: Icon(Ionicons.search),
@@ -78,38 +97,27 @@ class _characterScreenState extends State<characterScreen> {
               ),
             ),
             Positioned(
-              top: displayHeight(context)*0.073,
-                child: Container(
-              height: displayHeight(context)*0.615,
-              width: displayWidth(context)*0.9,
-             // color: Colors.black45,
-                  child: ListView.builder(
-                      padding: EdgeInsets.only(top: 0.0),
-                      itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom:8.0),
-                        child: displaySingleCharacter(
-                          villageSymbol: charactersProvider.ListOfCharacters[index].villageSymbol,
-                          clan: charactersProvider.ListOfCharacters[index].clan,
-                          noticeableFeature: charactersProvider.ListOfCharacters[index].noticeableFeature,
-                            age: charactersProvider.ListOfCharacters[index].age,
-                            caseStudy: charactersProvider.ListOfCharacters[index].caseStudy,
-                            firstAppearance: charactersProvider.ListOfCharacters[index].firstAppearance,
-                            images: charactersProvider.ListOfCharacters[index].images,
-                            name: charactersProvider.ListOfCharacters[index].name,
-                            quote: charactersProvider.ListOfCharacters[index].quote,
-                            rank: charactersProvider.ListOfCharacters[index].rank,
-                            sex: charactersProvider.ListOfCharacters[index].sex,
-                            signatureMove: charactersProvider.ListOfCharacters[index].signatureMove,
-                            village: charactersProvider.ListOfCharacters[index].village,
-
-                        ),
-                      );
-                    },
-                      itemCount: charactersProvider.ListOfCharacters.length,
-                    ),
-                  ),
-
+              top: displayHeight(context) * 0.073,
+              child: Container(
+                height: displayHeight(context) * 0.615,
+                width: displayWidth(context) * 0.9,
+                // color: Colors.black45,
+                child: displayCharacterList.length == 0
+                    ? Center(
+                        child: Text('Oops ! No such character found'),
+                      )
+                    : ListView.builder(
+                        padding: EdgeInsets.only(top: 0.0),
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: displaySingleCharacter(characterIndex: index,
+                            ),
+                          );
+                        },
+                        itemCount: displayCharacterList.length,
+                      ),
+              ),
             ),
           ],
         ),
