@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 import 'package:naruto_the_ninja_way/Models/character.dart';
 import 'package:naruto_the_ninja_way/Providers/listOfCharacters.dart';
 class charcterDetailScreen extends StatelessWidget {
@@ -20,9 +21,10 @@ class charcterDetailScreen extends StatelessWidget {
     final String caseStudy=c.caseStudy;
     final List<String> images=c.images;
     final String noticeableFeature=c.noticeableFeature;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo[600],
+        backgroundColor: Colors.indigo[700],
         title: Text('Details'),
       ),
     );
