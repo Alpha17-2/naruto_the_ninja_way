@@ -1,6 +1,7 @@
 
 class character {
   final String name;
+  final String coverImage;
   final String clan;
   final String village;
   final String sex;
@@ -16,6 +17,7 @@ class character {
 
   character({
     this.name,
+    this.coverImage,
     this.villageSymbol,
     this.clan,
     this.noticeableFeature,
