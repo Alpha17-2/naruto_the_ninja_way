@@ -106,6 +106,33 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                   ),
                 ),
               ),
+              Positioned(
+                bottom : 0,
+                  child: Container(
+                //color: Colors.blue[200],
+                height: displayHeight(context)*0.52,
+                width: displayWidth(context),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left:8.0,right: 8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: Text(name,
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.w600,
+                              fontSize: displayWidth(context)*0.06,
+                              color: Colors.teal[600],
+                              fontFamily: 'Naruto',
+                              letterSpacing: 1.2,
+                            ),),
+                          )
+                        ],
+                      ),
+                    ),
+              ))
             ],
           ),
         ),
