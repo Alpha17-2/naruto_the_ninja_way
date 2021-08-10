@@ -35,9 +35,7 @@ class listOfCharacters {
       clan: "Aburame",
       firstAppearance: "Episode 79",
       images: [
-        'images/characters/Shibi1.png',
-        'images/characters/Shibi3.jpg',
-        'images/characters/Shibi2.jpg',
+
       ],
       noticeableFeature: "images/characters/Shibi3.jpg",
       quote: "NA",
@@ -54,8 +52,7 @@ class listOfCharacters {
       clan: "Aburame",
       firstAppearance: "Shippuuden Episode 198",
       images: [
-        'images/characters/Torune1.png',
-        'images/characters/Torune2.jpg'
+
       ],
       name: "Aburame Torune",
       noticeableFeature: 'images/characters/Torune3.jpg',

@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
@@ -72,66 +73,37 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                           topRight: Radius.circular(35),
                         )),
                   )),
-              Positioned(
-                  top: displayHeight(context) * 0.15 + kToolbarHeight,
-                  left: displayWidth(context) * 0.02,
-                  child: GestureDetector(
-                    onTap: () {
-                      if (currentImage - 1 >= 0)
-                        setState(() {
-                          currentImage--;
-                        });
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      color:
-                          (currentImage - 1 >= 0) ? Colors.indigo : Colors.grey,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.arrow_back,
-                          size: displayWidth(context) * 0.05,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  )),
-              Positioned(
-                  top: displayHeight(context) * 0.15 + kToolbarHeight,
-                  right: displayWidth(context) * 0.02,
-                  child: GestureDetector(
-                    onTap: () {
-                      if (currentImage + 1 < c.images.length)
-                        setState(() {
-                          ++currentImage;
-                        });
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      color: (currentImage + 1 < c.images.length)
-                          ? Colors.indigo
-                          : Colors.grey,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.arrow_forward,
-                          size: displayWidth(context) * 0.05,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  )),
+
               Positioned(
                 top: displayHeight(context) * 0.03 + kToolbarHeight,
-                child: Image.asset(
-                  c.images[currentImage],
-                  height: displayHeight(context) * 0.38,
-                  //width: displayWidth(context)*0.4,
-                  fit: BoxFit.fill,
+                child: Container(
+                  height: displayHeight(context)*0.35,
+                  width: displayWidth(context),
+                 // color: Colors.red[200],
+                  child:  CarouselSlider(
+                    options: CarouselOptions(
+                      height: displayHeight(context)*0.35,
+                      aspectRatio: 16/9,
+                      viewportFraction: 0.45,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      //onPageChanged: callbackFunction,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                    items: images.map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return  Image.asset(i);
+                        },
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
             ],

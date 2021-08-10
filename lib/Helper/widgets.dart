@@ -106,11 +106,10 @@ class displaySingleCharacter extends StatelessWidget {
               bottom: displayHeight(context)*0.015,
               right: displayWidth(context)*0.04,
               child: Text(
-                "Village : ${c.village}",
+                "${c.village} village",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: displayWidth(context) * 0.035,
-
+                  fontSize: displayWidth(context) * 0.038,
                   //fontFamily: 'BreeSerif',
                 ),
               ),)
