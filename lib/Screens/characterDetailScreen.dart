@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
+import 'package:naruto_the_ninja_way/Helper/widgets.dart';
 import 'package:naruto_the_ninja_way/Models/character.dart';
 import 'package:naruto_the_ninja_way/Providers/listOfCharacters.dart';
 
@@ -15,13 +16,135 @@ class charcterDetailScreen extends StatefulWidget {
 }
 
 class _charcterDetailScreenState extends State<charcterDetailScreen> {
-  int currentImage = 0;
+  int currentCategory = 0;
   final myDivider = Opacity(
     opacity: 0.0,
     child: Divider(
       height: 6,
     ),
   );
+  final List<String> categories = [
+    'Details',
+    'Ninja Way',
+    'Missions',
+    'About',
+  ];
+  detailOfNinja(character c, BuildContext context) {
+    return Container(
+      height: displayHeight(context) * 0.3,
+      width: displayWidth(context) * 0.84,
+      decoration: BoxDecoration(
+        color: Colors.black26,
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(color: Colors.white70),
+      ),
+      child: Center(
+        child: Container(
+          height: displayHeight(context) * 0.28,
+          width: displayWidth(context) * 0.8,
+          decoration: BoxDecoration(
+              color: Colors.white70.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(15)),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10.0,left: 8.0,right: 8.0,bottom: 8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset('images/general/kunai.png',height: displayHeight(context)*0.04,fit: BoxFit.cover,),
+                    Text('Details',style: TextStyle(
+                      color: Colors.teal[600],
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Acme',
+                      fontSize: displayWidth(context)*0.06,
+                    ),),
+                    Image.asset('images/general/kunai.png',height: displayHeight(context)*0.04,fit: BoxFit.cover,),
+                  ],
+                ),
+                Divider(
+                  color: Colors.black,
+                  thickness: 1.8,
+                  indent: displayWidth(context)*0.1,
+                  endIndent: displayWidth(context)*0.1,
+
+                ),
+                Container(
+                  height: displayHeight(context)*0.195,
+                  width: displayWidth(context)*0.52,
+                 // color: Colors.black,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      twoTexts(context, "Village", c.village),
+                      myDivider,
+                      twoTexts(context, "Gender", c.sex),
+                      myDivider,
+                      twoTexts(context, "Age", c.age),
+                      myDivider,
+                      twoTexts(context, "Birthday", c.dob),
+                      myDivider,
+                      twoTexts(context, "Height", c.height),
+                      myDivider,
+                      twoTexts(context, "Weight", c.weight),
+
+                    ],
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  displayMenu(int index) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 6.0),
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            currentCategory = index;
+          });
+        },
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                colors: (currentCategory == index)
+                ? [
+                Colors.red[200],
+                Colors.red[300],
+                Colors.red[400],
+                ]
+                    : [
+                Colors.transparent,
+                Colors.transparent,
+                ],
+              )),
+          child: Center(
+            child: Padding(
+              padding:
+              EdgeInsets.only(top: 10.0, bottom: 10, right: 16, left: 16),
+              child: Text(
+                categories[index],
+                style: TextStyle(
+                    fontSize: displayWidth(context) * 0.036,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,124 +222,60 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                 ),
               ),
               Positioned(
-                  bottom: 0,
-                  child: Container(
-                    //color: Colors.yellow[400],
-                    height: displayHeight(context) * 0.54,
-                    width: displayWidth(context),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  c.name,
-                                  style: TextStyle(
-                                    // decoration: TextDecoration.underline,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: displayWidth(context) * 0.06,
-                                    color: Colors.teal[600],
-                                    fontFamily: 'Naruto',
-                                    letterSpacing: 1.2,
-                                  ),
-                                ),
-                                SizedBox(width: displayWidth(context)*0.02,),
-                                CircleAvatar(
-                                  radius: displayWidth(context)*0.04,
-                                  backgroundImage: AssetImage(c.villageSymbol),
-                                  backgroundColor: Colors.white,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Divider(
-                            height: displayHeight(context) * 0.03,
-                            indent: displayWidth(context) * 0.08,
-                            thickness: 1.5,
-                            endIndent: displayWidth(context) * 0.08,
-                            color: Colors.white,
-                          ),
-                          myDivider,
-                          Text(
-                            "Personal details",
-                            style: TextStyle(
-                              color: Colors.yellow,
-                              decoration: TextDecoration.underline,
-                              fontWeight: FontWeight.w600,
-                              fontSize: displayWidth(context) * 0.055,
-                              fontFamily: 'Acme',
-                            ),
-                          ),
-                          SizedBox(
-                            height: displayHeight(context) * 0.015,
-                          ),
-                          twoTexts(context, "Age", c.age),
-                          myDivider,
-                          twoTexts(context, "Gender", c.sex),
-                          myDivider,
-                          twoTexts(context, "Birthday", c.dob),
-                          myDivider,
-                          SizedBox(
-                            height: displayHeight(context) * 0.015,
-                          ),
-                          Text(
-                            "Ninja way",
-                            style: TextStyle(
-                              color: Colors.yellow,
-                              decoration: TextDecoration.underline,
-                              fontWeight: FontWeight.w600,
-                              fontSize: displayWidth(context) * 0.055,
-                              fontFamily: 'Acme',
-                            ),
-                          ),
-                          SizedBox(
-                            height: displayHeight(context) * 0.015,
-                          ),
-                          twoTexts(context, "Village", c.village),
-                          myDivider,
-                          twoTexts(context, "Clan", c.clan),
-                          myDivider,
-                          twoTexts(context, "Rank", c.rank),
-                          myDivider,
-                          twoTexts(context, "Signature move", c.signatureMove),
-                          myDivider,
-                          twoTexts(context, "Favourite quote", c.quote)
-                        ],
+                top: displayHeight(context) * 0.475,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      c.name,
+                      style: TextStyle(
+                        // decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w600,
+                        fontSize: displayWidth(context) * 0.06,
+                        color: Colors.yellow,
+                        fontFamily: 'Naruto',
+                        letterSpacing: 1.2,
                       ),
                     ),
+                    SizedBox(
+                      width: displayWidth(context) * 0.02,
+                    ),
+                    CircleAvatar(
+                      radius: displayWidth(context) * 0.04,
+                      backgroundImage: AssetImage(c.villageSymbol),
+                      backgroundColor: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: displayHeight(context) * 0.56,
+                child: Container(
+                  height: displayHeight(context) * 0.05,
+                  width: displayWidth(context) * 0.9,
+                  // color: Colors.white,
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return displayMenu(index);
+                    },
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length,
+                  ),
+                ),
+              ),
+              Positioned(
+                  bottom: displayHeight(context) * 0.02,
+                  child: Container(
+                    height: displayHeight(context) * 0.35,
+                    width: displayWidth(context) * 0.9,
+                    //color: Colors.white54,
+                    child: Center(child: detailOfNinja(c, context)),
                   ))
             ],
           ),
         ),
       ),
     );
-  }
-}
 
-Widget twoTexts(BuildContext ctx, String first, String second) {
-  return RichText(
-    text: TextSpan(
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: displayWidth(ctx) * 0.045,
-        ),
-        children: [
-          TextSpan(
-            text: first + " : ",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          TextSpan(
-            text: second,
-            style:
-                TextStyle(fontWeight: FontWeight.w400, color: Colors.white70),
-          ),
-        ]),
-  );
+  }
 }

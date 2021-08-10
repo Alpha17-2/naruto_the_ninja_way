@@ -114,3 +114,27 @@ class displaySingleCharacter extends StatelessWidget {
     );
   }
 }
+
+twoTexts(BuildContext ctx, String first, String second) {
+  return RichText(
+    text: TextSpan(
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: displayWidth(ctx) * 0.04,
+        ),
+        children: [
+          TextSpan(
+            text: first + " : ",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: second,
+            style:
+            TextStyle(fontWeight: FontWeight.w400, color: Colors.black87),
+          ),
+        ]),
+  );
+}
+

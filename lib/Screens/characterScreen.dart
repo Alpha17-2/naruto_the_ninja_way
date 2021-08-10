@@ -12,7 +12,6 @@ class characterScreen extends StatefulWidget {
 }
 
 class _characterScreenState extends State<characterScreen> {
-  final _searchCharacterKey = GlobalKey<FormState>();
   TextEditingController searchCharacterController;
   List<character> _list = listOfCharacters().allCharacters;
   List<character> displayCharacterList;
