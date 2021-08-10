@@ -12,7 +12,6 @@ class characterScreen extends StatefulWidget {
 }
 
 class _characterScreenState extends State<characterScreen> {
-  final _searchCharacterKey = GlobalKey<FormState>();
   TextEditingController searchCharacterController;
   List<character> _list = listOfCharacters().allCharacters;
   List<character> displayCharacterList;
@@ -35,9 +34,9 @@ class _characterScreenState extends State<characterScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context) * 0.7,
+      height: displayHeight(context)*0.73,
       width: displayWidth(context),
-      //  color: Colors.red,
+        //color: Colors.red,
       child: Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0),
         child: Stack(
@@ -99,9 +98,9 @@ class _characterScreenState extends State<characterScreen> {
             Positioned(
               top: displayHeight(context) * 0.073,
               child: Container(
-                height: displayHeight(context) * 0.615,
+                height: displayHeight(context) * 0.7,
                 width: displayWidth(context) * 0.9,
-                // color: Colors.black45,
+                 //color: Colors.black45,
                 child: displayCharacterList.length == 0
                     ? Center(
                         child: Text('Oops ! No such character found'),

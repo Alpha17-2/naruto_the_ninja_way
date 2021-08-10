@@ -1,6 +1,10 @@
 
 class character {
   final String name;
+  final String height;
+  final String weight;
+  final String dob;
+  final String coverImage;
   final String clan;
   final String village;
   final String sex;
@@ -11,14 +15,16 @@ class character {
   final String signatureMove;
   final String caseStudy;
   final List<String> images;
-  final String noticeableFeature;
   final String villageSymbol;
 
   character({
     this.name,
+    this.height,
+    this.weight,
+    this.dob,
+    this.coverImage,
     this.villageSymbol,
     this.clan,
-    this.noticeableFeature,
     this.sex,
     this.caseStudy,
     this.village,

@@ -63,8 +63,8 @@ class _homeState extends State<home> {
                           Colors.red[400],
                         ]
                       : [
-                          Colors.white,
-                          Colors.white,
+                          Colors.transparent,
+                  Colors.transparent,
                         ],
                 )),
             child: Center(
@@ -76,8 +76,7 @@ class _homeState extends State<home> {
                   style: TextStyle(
                     fontSize: displayWidth(context) * 0.036,
                     fontWeight: FontWeight.bold,
-                    color:
-                        (currentMenu == index) ? Colors.white : Colors.black54,
+                    color: Colors.white
                   ),
                 ),
               ),
@@ -89,11 +88,20 @@ class _homeState extends State<home> {
 
     return Scaffold(
       body: SafeArea(
-          top: true,
+          top: false,
           child: Container(
             height: displayHeight(context),
             width: displayWidth(context),
-            color: Colors.white,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xfb434343),
+                  Color(0xfb000000),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              )
+            ),
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -134,7 +142,7 @@ class _homeState extends State<home> {
                   child: Container(
                     height: displayHeight(context) * 0.05,
                     width: displayWidth(context) * 0.95,
-                    // color: Colors.black87,
+                     //color: Colors.white,
                     child: ListView.builder(
                       itemBuilder: (context, index) {
                         return displayMenu(index);
