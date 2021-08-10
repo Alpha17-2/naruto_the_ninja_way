@@ -5,10 +5,12 @@ class listOfCharacters {
   final List<character> characters = [
     character(
         name: "Aburame Shino",
+        height: "175.1 cm",
+        weight: "56.6 kg",
+        dob: "January 23rd",
         coverImage: 'images/characters/Shino/cover.jpg',
         clan: "Aburame",
         age: "16",
-        noticeableFeature: 'images/characters/Shino5.png',
         rank: "Chunin",
         village: "Leaf",
         villageSymbol: "images/villages/leaf.jpg",
@@ -37,7 +39,6 @@ class listOfCharacters {
       images: [
 
       ],
-      noticeableFeature: "images/characters/Shibi3.jpg",
       quote: "NA",
       rank: "Jounin",
       sex: "Male",
@@ -55,7 +56,6 @@ class listOfCharacters {
 
       ],
       name: "Aburame Torune",
-      noticeableFeature: 'images/characters/Torune3.jpg',
       quote: "NA",
       rank: "Anbu",
       sex: "Male",

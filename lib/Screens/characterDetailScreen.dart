@@ -16,24 +16,13 @@ class charcterDetailScreen extends StatefulWidget {
 
 class _charcterDetailScreenState extends State<charcterDetailScreen> {
   int currentImage = 0;
+  final myDivider = Opacity(opacity: 0.0,child: Divider(),);
 
   @override
   Widget build(BuildContext context) {
     final character c =
         listOfCharacters().allCharacters[widget.indexOfCharacter];
-    final String name = c.name;
-    final String village = c.village;
-    final String sex = c.sex;
-    final String clan = c.clan;
-    final String rank = c.rank;
-    final String villageSymbol = c.villageSymbol;
-    final String age = c.age;
-    final String firstAppearance = c.firstAppearance;
-    final String quote = c.quote;
-    final String signatureMove = c.signatureMove;
-    final String caseStudy = c.caseStudy;
-    final List<String> images = c.images;
-    final String noticeableFeature = c.noticeableFeature;
+
 
     return Scaffold(
       body: SafeArea(
@@ -96,7 +85,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                       //onPageChanged: callbackFunction,
                       scrollDirection: Axis.horizontal,
                     ),
-                    items: images.map((i) {
+                    items: c.images.map((i) {
                       return Builder(
                         builder: (BuildContext context) {
                           return  Image.asset(i);
@@ -113,22 +102,31 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                 height: displayHeight(context)*0.52,
                 width: displayWidth(context),
                     child: Padding(
-                      padding: const EdgeInsets.only(left:8.0,right: 8.0),
+                      padding: const EdgeInsets.only(left:10.0,right: 10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Center(
-                            child: Text(name,
+                            child: Text(c.name,
                               style: TextStyle(
-                                decoration: TextDecoration.underline,
+                               // decoration: TextDecoration.underline,
                               fontWeight: FontWeight.w600,
                               fontSize: displayWidth(context)*0.06,
                               color: Colors.teal[600],
                               fontFamily: 'Naruto',
                               letterSpacing: 1.2,
                             ),),
-                          )
+                          ),
+                          Divider(
+                            height: displayHeight(context)*0.03,
+                            indent: displayWidth(context)*0.08,
+                            thickness: 1.2,
+                            endIndent: displayWidth(context)*0.08,
+                            color: Colors.black,
+                          ),
+                          myDivider,
+                          twoTexts(context, "Clan", c.clan),
                         ],
                       ),
                     ),
@@ -139,4 +137,25 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
       ),
     );
   }
+}
+
+Widget twoTexts(BuildContext ctx,String first,String second){
+  return RichText(
+    text: TextSpan(
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: displayWidth(ctx)*0.045,
+      ),
+      children: [
+        TextSpan(
+          text: first+" : ",
+          style: TextStyle(fontWeight: FontWeight.bold,),
+        ),
+        TextSpan(
+          text: second,
+          style: TextStyle(fontWeight: FontWeight.w400),
+        ),
+      ]
+    ),
+  );
 }

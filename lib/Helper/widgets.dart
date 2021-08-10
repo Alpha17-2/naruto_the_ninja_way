@@ -22,12 +22,7 @@ class displaySingleCharacter extends StatelessWidget {
     final character c = listOfCharacters().allCharacters[characterIndex];
     final String name = c.name;
     final String coverImage = c.coverImage;
-    final String village = c.village;
-    final String rank = c.rank;
-    final String villageSymbol = c.villageSymbol;
-    final String age = c.age;
     final List<String> images = c.images;
-    final String noticeableFeature = c.noticeableFeature;
     return GestureDetector(
       onTap: () {
         Navigator.push(
