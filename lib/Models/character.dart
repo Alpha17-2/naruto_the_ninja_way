@@ -16,9 +16,21 @@ class character {
   final String caseStudy;
   final List<String> images;
   final String villageSymbol;
+  final String drank;
+  final String crank;
+  final String brank;
+  final String arank;
+  final String srank;
+
+
 
   character({
     this.name,
+    this.brank,
+    this.crank,
+    this.drank,
+    this.arank,
+    this.srank,
     this.height,
     this.weight,
     this.dob,

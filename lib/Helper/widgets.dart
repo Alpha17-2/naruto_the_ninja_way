@@ -120,7 +120,7 @@ twoTexts(BuildContext ctx, String first, String second) {
     text: TextSpan(
         style: TextStyle(
           color: Colors.black,
-          fontSize: displayWidth(ctx) * 0.04,
+          fontSize: displayWidth(ctx) * 0.035,
         ),
         children: [
           TextSpan(
