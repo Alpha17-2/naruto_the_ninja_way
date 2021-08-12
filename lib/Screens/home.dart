@@ -88,9 +88,9 @@ class _homeState extends State<home> {
 
     return Scaffold(
       body: SafeArea(
-          top: false,
+          top: true,
           child: Container(
-            height: displayHeight(context),
+            height: displayHeight(context)-kToolbarHeight,
             width: displayWidth(context),
             decoration: BoxDecoration(
               gradient: LinearGradient(

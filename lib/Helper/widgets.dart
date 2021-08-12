@@ -9,20 +9,11 @@ class displaySingleCharacter extends StatelessWidget {
   final int characterIndex;
   displaySingleCharacter({this.characterIndex});
 
-  final Map<String, Color> rankColors = {
-    'Genin': Colors.green[600],
-    'Chunin': Colors.blue[800],
-    'Jounin': Colors.purple[800],
-    'Anbu': Colors.orange[800],
-    'Kage': Colors.red[700],
-  };
-
   @override
   Widget build(BuildContext context) {
     final character c = listOfCharacters().allCharacters[characterIndex];
     final String name = c.name;
     final String coverImage = c.coverImage;
-    final List<String> images = c.images;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -33,13 +24,13 @@ class displaySingleCharacter extends StatelessWidget {
                     )));
       },
       child: Container(
-        height: displayHeight(context) * 0.3,
-        //color: Colors.red,
+        height: displayHeight(context) * 0.28,
+      //  color: Colors.red,
         child: Stack(
           alignment: Alignment.center,
           children: [
             Positioned(
-                top: displayHeight(context) * 0.05,
+                top: displayHeight(context) * 0.025,
                 child: Container(
                   width: displayWidth(context) * 0.9,
                   height: displayHeight(context) * 0.25,
@@ -53,7 +44,7 @@ class displaySingleCharacter extends StatelessWidget {
                 )),
             Positioned(
               // opacity
-                top: displayHeight(context) * 0.05,
+                top: displayHeight(context) * 0.025,
                 child: Container(
                   width: displayWidth(context) * 0.9,
                   height: displayHeight(context) * 0.25,
@@ -72,19 +63,10 @@ class displaySingleCharacter extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 )),
-            Positioned(
-                // transparent image 1 standing
-                top: -5,
-                left: 0,
-                child: Image.asset(
-                  images[0],
-                  height: displayHeight(context) * 0.26,
-                  fit: BoxFit.fill,
-                )),
 
             Positioned(
               // title
-              bottom: displayHeight(context)*0.035,
+              bottom: displayHeight(context)*0.05,
               right: displayWidth(context)*0.04,
               child: Text(
               name,
@@ -98,7 +80,7 @@ class displaySingleCharacter extends StatelessWidget {
 
             Positioned(
               // village
-              bottom: displayHeight(context)*0.015,
+              bottom: displayHeight(context)*0.03,
               right: displayWidth(context)*0.04,
               child: Text(
                 "${c.village} village",
