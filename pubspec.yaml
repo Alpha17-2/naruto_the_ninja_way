@@ -40,6 +40,8 @@ flutter:
   assets:
     - images/general/
     - images/characters/Shino/
+    - images/characters/Shibi/
+    - images/characters/Torune/
     - images/villages/
     
 

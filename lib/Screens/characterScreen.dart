@@ -34,9 +34,9 @@ class _characterScreenState extends State<characterScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context)*0.73,
+      height: displayHeight(context)*0.65,
       width: displayWidth(context),
-        //color: Colors.red,
+       // color: Colors.red,
       child: Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0),
         child: Stack(
@@ -98,18 +98,17 @@ class _characterScreenState extends State<characterScreen> {
             Positioned(
               top: displayHeight(context) * 0.073,
               child: Container(
-                height: displayHeight(context) * 0.7,
+                height: displayHeight(context) * 0.57,
                 width: displayWidth(context) * 0.9,
-                 //color: Colors.black45,
+                // color: Colors.black45,
                 child: displayCharacterList.length == 0
                     ? Center(
                         child: Text('Oops ! No such character found'),
                       )
                     : ListView.builder(
-                        padding: EdgeInsets.only(top: 0.0),
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
+                            padding: const EdgeInsets.only(bottom: 2),
                             child: displaySingleCharacter(characterIndex: index,
                             ),
                           );
