@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 import 'package:naruto_the_ninja_way/Screens/characterScreen.dart';
@@ -64,7 +66,7 @@ class _homeState extends State<home> {
                         ]
                       : [
                           Colors.transparent,
-                  Colors.transparent,
+                          Colors.transparent,
                         ],
                 )),
             child: Center(
@@ -74,10 +76,9 @@ class _homeState extends State<home> {
                 child: Text(
                   menu[index],
                   style: TextStyle(
-                    fontSize: displayWidth(context) * 0.036,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
-                  ),
+                      fontSize: displayWidth(context) * 0.036,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ),
@@ -90,73 +91,68 @@ class _homeState extends State<home> {
       body: SafeArea(
           top: true,
           child: Container(
-            height: displayHeight(context)-kToolbarHeight,
+            height: displayHeight(context) - kToolbarHeight,
             width: displayWidth(context),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xfb434343),
-                  Color(0xfb000000),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              )
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  top: displayHeight(context) * 0.01,
-                  left: displayWidth(context) * 0.05,
-                  child: Image.asset('images/general/intro.png',
-                      height: displayHeight(context) * 0.145,
-                      // width: displayWidth(context) * 0.3,
-                      fit: BoxFit.cover),
-                ),
-                Positioned(
-                    top: 0,
-                    left: displayWidth(context) * 0.37,
-                    child: Container(
-                      height: displayHeight(context) * 0.18,
-                      width: displayWidth(context) * 0.57,
-                      //color: Colors.black87,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'images/general/heading.png',
-                            height: displayHeight(context) * 0.045,
-                            fit: BoxFit.fitWidth,
+                image: DecorationImage(
+              image: AssetImage('images/general/bg.jpg'),
+              fit: BoxFit.cover,
+            )),
+            child: ClipRRect(
+              // make sure we apply clip it properly
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                child: Container(
+                  alignment: Alignment.center,
+                  color: Colors.black.withOpacity(0.5),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Positioned(
+                          top: 0,
+                          child: Container(
+                            height: displayHeight(context) * 0.18,
+                            width: displayWidth(context) * 0.57,
+                            //color: Colors.black87,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'images/general/heading.png',
+                                  height: displayHeight(context) * 0.05,
+                                  fit: BoxFit.cover,
+                                ),
+                                Image.asset(
+                                  'images/general/subHeading.png',
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ],
+                            ),
+                          )),
+                      Positioned(
+                        top: displayHeight(context) * 0.1775,
+                        child: Container(
+                          height: displayHeight(context) * 0.05,
+                          width: displayWidth(context) * 0.95,
+                          //color: Colors.white,
+                          child: ListView.builder(
+                            itemBuilder: (context, index) {
+                              return displayMenu(index);
+                            },
+                            scrollDirection: Axis.horizontal,
+                            itemCount: menu.length,
                           ),
-                          Image.asset(
-                            'images/general/subHeading.png',
-                            height: displayHeight(context) * 0.0425,
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ],
+                        ),
                       ),
-                    )),
-                Positioned(
-                  top: displayHeight(context) * 0.1775,
-                  child: Container(
-                    height: displayHeight(context) * 0.05,
-                    width: displayWidth(context) * 0.95,
-                     //color: Colors.white,
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return displayMenu(index);
-                      },
-                      scrollDirection: Axis.horizontal,
-                      itemCount: menu.length,
-                    ),
+                      Positioned(
+                        top: displayHeight(context) * 0.25,
+                        child: screens[currentMenu],
+                      ),
+                    ],
                   ),
                 ),
-                Positioned(
-                  top: displayHeight(context) * 0.25,
-                  child: screens[currentMenu],
-                ),
-              ],
+              ),
             ),
           )),
     );

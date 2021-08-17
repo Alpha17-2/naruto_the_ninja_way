@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -29,10 +31,6 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
     'Missions',
     'About',
   ];
-  
-  
-  
-
 
   displayMenu(int index) {
     return Padding(
@@ -79,7 +77,6 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     final character c =
         listOfCharacters().allCharacters[widget.indexOfCharacter];
     final List<dynamic> mainContent = [
@@ -157,23 +154,23 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
       Container(
         height: displayHeight(context) * 0.22,
         width: displayWidth(context) * 0.79,
-       // color: Colors.black,
+        // color: Colors.black,
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(bottom:4.0),
-            child: Text(c.caseStudy,style: TextStyle(
+            child: Padding(
+          padding: const EdgeInsets.only(bottom: 4.0),
+          child: Text(
+            c.caseStudy,
+            style: TextStyle(
               color: Colors.black,
-              fontSize: displayWidth(context)*0.035,
+              fontSize: displayWidth(context) * 0.035,
               fontWeight: FontWeight.w400,
               wordSpacing: 1.2,
-            ),),
-          )
-        ),
+            ),
+          ),
+        )),
       ),
-
-
     ];
-    displayContainerBox(character c, BuildContext context,int index) {
+    displayContainerBox(character c, BuildContext context, int index) {
       return Container(
         height: displayHeight(context) * 0.325,
         width: displayWidth(context) * 0.9,
@@ -236,6 +233,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
         ),
       );
     }
+
     return Scaffold(
       body: SafeArea(
         top: false,
@@ -244,6 +242,28 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
           child: Stack(
             alignment: Alignment.center,
             children: [
+              Positioned(
+                top: 0,
+                child: Container(
+                  height: displayHeight(context) * 0.46,
+                  width: displayWidth(context),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    image: AssetImage(c.coverImage),
+                    fit: BoxFit.cover,
+                  )),
+                  child: ClipRRect(
+                    // make sure we apply clip it properly
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 7.5, sigmaY: 7.5),
+                      child: Container(
+                        alignment: Alignment.center,
+                        color: Colors.black.withOpacity(0.1),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               Positioned(
                   top: displayHeight(context) * 0.04,
                   left: displayWidth(context) * 0.02,
@@ -353,7 +373,9 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                     height: displayHeight(context) * 0.35,
                     width: displayWidth(context) * 0.95,
                     //color: Colors.white54,
-                    child: Center(child: displayContainerBox(c, context,currentCategory)),
+                    child: Center(
+                        child:
+                            displayContainerBox(c, context, currentCategory)),
                   ))
             ],
           ),

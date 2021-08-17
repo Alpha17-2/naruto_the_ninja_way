@@ -49,7 +49,7 @@ class _characterScreenState extends State<characterScreen> {
                   color: Colors.grey[300],
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                height: displayHeight(context) * 0.065,
+                height: displayHeight(context) * 0.06,
                 width: displayWidth(context) * 0.92,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
