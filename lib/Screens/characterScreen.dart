@@ -34,9 +34,9 @@ class _characterScreenState extends State<characterScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context)*0.65,
+      height: displayHeight(context) * 0.65,
       width: displayWidth(context),
-       // color: Colors.red,
+      // color: Colors.red,
       child: Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0),
         child: Stack(
@@ -55,21 +55,23 @@ class _characterScreenState extends State<characterScreen> {
                   padding: const EdgeInsets.only(left: 10.0),
                   child: TextFormField(
                     onChanged: (value) {
+                      print(value);
                       List<character> temp = [];
                       if (value.isEmpty ||
                           value == null ||
                           value.length == 0 ||
                           value == '')
                         temp = _list;
-                      else
-                        temp = _list
-                            .where((element) => element.name
-                                .toLowerCase()
-                                .contains(value.toLowerCase()))
-                            .toList();
+                      else {
+                          temp = _list
+                              .where((element) => element.name
+                                  .toLowerCase()
+                                  .contains(value.toLowerCase()))
+                              .toList();
+                          // print(displayCharacterList[1].name);
+                      }
                       setState(() {
-                        displayCharacterList = temp;
-                        print(displayCharacterList.toString());
+                        displayCharacterList=temp;
                       });
                     },
                     toolbarOptions: ToolbarOptions(
@@ -109,7 +111,8 @@ class _characterScreenState extends State<characterScreen> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 2),
-                            child: displaySingleCharacter(characterIndex: index,
+                            child: displaySingleCharacter(
+                              characterIndex: displayCharacterList[index].id,
                             ),
                           );
                         },

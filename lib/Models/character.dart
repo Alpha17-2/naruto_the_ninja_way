@@ -1,6 +1,7 @@
 
 class character {
   final String name;
+  final int id;
   final String height;
   final String weight;
   final String dob;
@@ -26,6 +27,7 @@ class character {
 
   character({
     this.name,
+    this.id,
     this.brank,
     this.crank,
     this.drank,
