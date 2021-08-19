@@ -25,7 +25,7 @@ class displaySingleCharacter extends StatelessWidget {
       },
       child: Container(
         height: displayHeight(context) * 0.28,
-      //  color: Colors.red,
+       // color: Colors.red,
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -35,19 +35,19 @@ class displaySingleCharacter extends StatelessWidget {
                   width: displayWidth(context) * 0.9,
                   height: displayHeight(context) * 0.25,
                   decoration: BoxDecoration(
-                    // color: Colors.teal ,
                     image: DecorationImage(
                       image: AssetImage(coverImage),fit: BoxFit.fill,
                     ),
                     borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: Colors.black54,width: displayWidth(context)*0.02)
                   ),
                 )),
             Positioned(
               // opacity
                 top: displayHeight(context) * 0.025,
                 child: Container(
-                  width: displayWidth(context) * 0.9,
-                  height: displayHeight(context) * 0.25,
+                  width: displayWidth(context) * 0.865,
+                  height: displayHeight(context) * 0.242,
                   decoration: BoxDecoration(
                     // color: Colors.teal ,
                     gradient: LinearGradient(
@@ -67,7 +67,7 @@ class displaySingleCharacter extends StatelessWidget {
             Positioned(
               // title
               bottom: displayHeight(context)*0.05,
-              right: displayWidth(context)*0.04,
+              right: displayWidth(context)*0.06,
               child: Text(
               name,
               style: TextStyle(
@@ -81,7 +81,7 @@ class displaySingleCharacter extends StatelessWidget {
             Positioned(
               // village
               bottom: displayHeight(context)*0.03,
-              right: displayWidth(context)*0.04,
+              right: displayWidth(context)*0.06,
               child: Text(
                 "${c.village} village",
                 style: TextStyle(

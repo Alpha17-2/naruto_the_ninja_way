@@ -101,7 +101,7 @@ class _homeState extends State<home> {
             child: ClipRRect(
               // make sure we apply clip it properly
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                 child: Container(
                   alignment: Alignment.center,
                   color: Colors.black.withOpacity(0.5),
@@ -133,15 +133,21 @@ class _homeState extends State<home> {
                       Positioned(
                         top: displayHeight(context) * 0.1775,
                         child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black38,
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
                           height: displayHeight(context) * 0.05,
-                          width: displayWidth(context) * 0.95,
-                          //color: Colors.white,
-                          child: ListView.builder(
-                            itemBuilder: (context, index) {
-                              return displayMenu(index);
-                            },
-                            scrollDirection: Axis.horizontal,
-                            itemCount: menu.length,
+                          width: displayWidth(context) * 0.98,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:12.0,right: 12.0,top: 2.0,bottom: 2.0),
+                            child: ListView.builder(
+                              itemBuilder: (context, index) {
+                                return displayMenu(index);
+                              },
+                              scrollDirection: Axis.horizontal,
+                              itemCount: menu.length,
+                            ),
                           ),
                         ),
                       ),
