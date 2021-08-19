@@ -5,6 +5,7 @@ import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 import 'package:naruto_the_ninja_way/Helper/widgets.dart';
 import 'package:naruto_the_ninja_way/Models/character.dart';
 import 'package:naruto_the_ninja_way/Providers/listOfCharacters.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class characterScreen extends StatefulWidget {
   @override
@@ -109,10 +110,19 @@ class _characterScreenState extends State<characterScreen> {
                       )
                     : ListView.builder(
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 2),
-                            child: displaySingleCharacter(
-                              characterIndex: displayCharacterList[index].id,
+                          return AnimationConfiguration.staggeredList(
+                            position: index,
+                            duration: Duration(microseconds: 550000),
+                            child: FlipAnimation(
+                              child: SlideAnimation(
+                                curve: Curves.easeInExpo,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 2),
+                                  child: displaySingleCharacter(
+                                    characterIndex: displayCharacterList[index].id,
+                                  ),
+                                ),
+                              ),
                             ),
                           );
                         },
