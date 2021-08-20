@@ -24,37 +24,31 @@ class displaySingleCharacter extends StatelessWidget {
                     )));
       },
       child: Container(
-        height: displayHeight(context) * 0.28,
-       // color: Colors.red,
+        width: displayWidth(context) * 0.9,
+        height: displayHeight(context) * 0.25,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(coverImage),fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(color: Colors.black54,width: displayWidth(context)*0.02)
+        ),
         child: Stack(
           alignment: Alignment.center,
           children: [
             Positioned(
-                top: displayHeight(context) * 0.025,
-                child: Container(
-                  width: displayWidth(context) * 0.9,
-                  height: displayHeight(context) * 0.25,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(coverImage),fit: BoxFit.fill,
-                    ),
-                    borderRadius: BorderRadius.circular(30),
-                    border: Border.all(color: Colors.black54,width: displayWidth(context)*0.02)
-                  ),
-                )),
-            Positioned(
               // opacity
-                top: displayHeight(context) * 0.025,
+                top: 0,
                 child: Container(
-                  width: displayWidth(context) * 0.865,
+                  width: displayWidth(context) * 0.86,
                   height: displayHeight(context) * 0.242,
                   decoration: BoxDecoration(
                     // color: Colors.teal ,
                     gradient: LinearGradient(
-                        end: const Alignment(0, 0.4),
-                        begin: const Alignment(0.0, 0.15),
+                      end: const Alignment(0, 0.4),
+                      begin: const Alignment(0.0, 0.15),
                       colors:<Color>[
-                       Color(0xfb1a1a1a).withOpacity(0.0),
+                        Color(0xfb1a1a1a).withOpacity(0.0),
                         Color(0xfb1a1a1a).withOpacity(0.0),
                         Color(0xfb1a1a1a).withOpacity(0.8),
 
@@ -66,21 +60,21 @@ class displaySingleCharacter extends StatelessWidget {
 
             Positioned(
               // title
-              bottom: displayHeight(context)*0.05,
+              bottom: displayHeight(context)*0.03,
               right: displayWidth(context)*0.06,
               child: Text(
-              name,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: displayWidth(context) * 0.045,
-                fontWeight: FontWeight.bold,
-                //fontFamily: 'BreeSerif',
-              ),
-            ),),
+                name,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: displayWidth(context) * 0.045,
+                  fontWeight: FontWeight.bold,
+                  //fontFamily: 'BreeSerif',
+                ),
+              ),),
 
             Positioned(
               // village
-              bottom: displayHeight(context)*0.03,
+              bottom: displayHeight(context)*0.01,
               right: displayWidth(context)*0.06,
               child: Text(
                 "${c.village} village",
@@ -93,6 +87,16 @@ class displaySingleCharacter extends StatelessWidget {
           ],
         ),
       ),
+
+
+
+
+
+
+
+
+
+
     );
   }
 }

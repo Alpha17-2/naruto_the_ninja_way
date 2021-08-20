@@ -109,11 +109,11 @@ class _homeState extends State<home> {
                     alignment: Alignment.center,
                     children: [
                       Positioned(
-                          top: 0,
+                          top: displayHeight(context)*0.01,
                           child: Container(
-                            height: displayHeight(context) * 0.18,
+                            height: displayHeight(context) * 0.1,
                             width: displayWidth(context) * 0.57,
-                            //color: Colors.black87,
+                           // color: Colors.black87,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -131,7 +131,7 @@ class _homeState extends State<home> {
                             ),
                           )),
                       Positioned(
-                        top: displayHeight(context) * 0.1775,
+                        top: displayHeight(context) * 0.125,
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.black38,
@@ -152,7 +152,7 @@ class _homeState extends State<home> {
                         ),
                       ),
                       Positioned(
-                        top: displayHeight(context) * 0.25,
+                        top: displayHeight(context) * 0.2,
                         child: screens[currentMenu],
                       ),
                     ],

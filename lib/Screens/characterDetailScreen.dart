@@ -95,8 +95,25 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
           child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 2.5, sigmaY: 2.5),
       child: Container(
+        height: displayHeight(context),
+          width: displayWidth(context),
           alignment: Alignment.center,
           color: Colors.black54.withOpacity(0.5),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+            top: displayHeight(context) * 0.04,
+        left: displayWidth(context) * 0.02,
+        child: IconButton(
+          iconSize: displayWidth(context) * 0.09,
+          icon: Icon(Ionicons.arrow_back_circle),
+          color: Colors.black,
+          onPressed: () => Navigator.pop(context),
+            )
+            ),
+          ],
+        ),
     ),
     ),
         ),
