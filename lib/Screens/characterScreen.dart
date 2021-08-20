@@ -35,7 +35,7 @@ class _characterScreenState extends State<characterScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context) * 0.7,
+      height: displayHeight(context) * 0.8,
       width: displayWidth(context),
        //color: Colors.red,
       child: Padding(
@@ -101,7 +101,7 @@ class _characterScreenState extends State<characterScreen> {
             Positioned(
               top: displayHeight(context) * 0.07,
               child: Container(
-                height: displayHeight(context) * 0.7,
+                height: displayHeight(context) * 0.68,
                 width: displayWidth(context) * 0.9,
                 // color: Colors.yellow,
                 child: displayCharacterList.length == 0

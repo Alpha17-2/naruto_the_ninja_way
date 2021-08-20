@@ -19,6 +19,7 @@ class charcterDetailScreen extends StatefulWidget {
 
 class _charcterDetailScreenState extends State<charcterDetailScreen> {
   int currentCategory = 0;
+
   final myDivider = Opacity(
     opacity: 0.0,
     child: Divider(
@@ -79,43 +80,201 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
   Widget build(BuildContext context) {
     final character c =
         listOfCharacters().allCharacters[widget.indexOfCharacter];
+    final myTextStyle = TextStyle(
+      color: Colors.indigo[800],
+      fontSize: displayWidth(context) * 0.04,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Acme',
+    );
     return Scaffold(
       body: Container(
         height: displayHeight(context),
         width: displayWidth(context),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/villages/leaf.jpg'),
-            fit: BoxFit.fill,
+            image: AssetImage('images/villages/rain.jpg'),
+            fit: BoxFit.cover,
           ),
-             // border: Border.all(color: Colors.black54,width: displayWidth(context)*0.03),
+          // border: Border.all(color: Colors.black54,width: displayWidth(context)*0.03),
         ),
         child: ClipRRect(
           // make sure we apply clip it properly
           child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 2.5, sigmaY: 2.5),
-      child: Container(
-        height: displayHeight(context),
-          width: displayWidth(context),
-          alignment: Alignment.center,
-          color: Colors.black54.withOpacity(0.5),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-            top: displayHeight(context) * 0.04,
-        left: displayWidth(context) * 0.02,
-        child: IconButton(
-          iconSize: displayWidth(context) * 0.09,
-          icon: Icon(Ionicons.arrow_back_circle),
-          color: Colors.black,
-          onPressed: () => Navigator.pop(context),
-            )
+            filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+            child: Container(
+              height: displayHeight(context),
+              width: displayWidth(context),
+              alignment: Alignment.center,
+              // color: Colors.black54.withOpacity(0.0),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                      bottom: displayHeight(context) * 0.15,
+                      child: Container(
+                        height: displayHeight(context) * 0.8,
+                        width: displayWidth(context),
+                        //color: Colors.black38,
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                            height: displayHeight(context) * 0.7,
+                            aspectRatio: 16 / 9,
+                            viewportFraction: 2.5,
+                            initialPage: 0,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: true,
+                            autoPlayInterval: Duration(seconds: 2),
+                            autoPlayAnimationDuration:
+                                Duration(milliseconds: 600),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            enlargeCenterPage: true,
+
+                            //onPageChanged: callbackFunction,
+                            scrollDirection: Axis.horizontal,
+                          ),
+                          items: c.images.map((i) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return Image.asset(i);
+                              },
+                            );
+                          }).toList(),
+                        ),
+                      )),
+                  Positioned(
+                      top: displayHeight(context) * 0.04,
+                      left: displayWidth(context) * 0.02,
+                      child: IconButton(
+                        iconSize: displayWidth(context) * 0.09,
+                        icon: Icon(Ionicons.arrow_back_circle),
+                        color: Colors.black,
+                        onPressed: () => Navigator.pop(context),
+                      )),
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          left: 12, top: 15, right: 12, bottom: 12),
+                      height: displayHeight(context) * 0.35,
+                      width: displayWidth(context) * 0.95,
+                      decoration: BoxDecoration(
+                        color: Colors.white70,
+                        borderRadius:
+                            BorderRadius.only(topLeft: Radius.circular(50.0)),
+                        border: Border.all(
+                            color: Color(0xfbDAA521),
+                            width: displayWidth(context) * 0.025),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                'images/villages/leaf.png',
+                                height: displayHeight(context) * 0.045,
+                                fit: BoxFit.fill,
+                              ),
+                              Text(
+                                c.name,
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: displayWidth(context) * 0.058,
+                                    fontFamily: 'Naruto'),
+                              ),
+                              Image.asset(
+                                'images/general/shuriken.png',
+                                height: displayHeight(context) * 0.045,
+                              )
+                            ],
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          ),
+                          Opacity(
+                              opacity: 0.0,
+                              child: Divider(
+                                height: displayHeight(context) * 0.005,
+                              )),
+                          IntrinsicHeight(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  c.village,
+                                  style: myTextStyle,
+                                ),
+                                VerticalDivider(
+                                  color: Colors.red[700],
+                                  thickness: displayWidth(context) * 0.003,
+                                ),
+                                Text(
+                                  c.sex,
+                                  style: myTextStyle,
+                                ),
+                                VerticalDivider(
+                                  color: Colors.red[700],
+                                  thickness: displayWidth(context) * 0.003,
+                                ),
+                                Text(
+                                  c.rank,
+                                  style: myTextStyle,
+                                ),
+                                VerticalDivider(
+                                  thickness: displayWidth(context) * 0.003,
+                                  color: Colors.red[700],
+                                ),
+                                Text(
+                                  c.clan,
+                                  style: myTextStyle,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Divider(
+                            color: Colors.red[700],
+                            thickness: displayWidth(context) * 0.0045,
+                            indent: displayWidth(context) * 0.1,
+                            endIndent: displayWidth(context) * 0.1,
+                          ),
+                          Container(
+                            height: displayHeight(context) * 0.16,
+                            width: displayWidth(context) * 0.85,
+                            color: Colors.white24,
+                            child: SingleChildScrollView(
+                              child: Text(
+                                c.caseStudy,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    wordSpacing: 1.5),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                      bottom: displayHeight(context) * 0.015,
+                      right: displayWidth(context) * 0.07,
+                      child: Image.asset(
+                        'images/general/kunai2.png',
+                        height: displayHeight(context) * 0.045,
+                        fit: BoxFit.fill,
+                      )),
+                  Positioned(
+                      bottom: displayHeight(context) * 0.029,
+                      right: displayWidth(context) * 0.035,
+                      child: Image.asset(
+                        'images/general/kunai3.png',
+                        width: displayHeight(context) * 0.045,
+                        fit: BoxFit.fill,
+                      )),
+                ],
+              ),
             ),
-          ],
-        ),
-    ),
-    ),
+          ),
         ),
       ),
     );

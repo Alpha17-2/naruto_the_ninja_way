@@ -91,7 +91,7 @@ class _homeState extends State<home> {
       body: SafeArea(
           top: true,
           child: Container(
-            height: displayHeight(context) - kToolbarHeight,
+            height: displayHeight(context),
             width: displayWidth(context),
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -131,13 +131,13 @@ class _homeState extends State<home> {
                             ),
                           )),
                       Positioned(
-                        top: displayHeight(context) * 0.125,
+                        top: displayHeight(context) * 0.122,
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.black38,
                             borderRadius: BorderRadius.circular(15.0),
                           ),
-                          height: displayHeight(context) * 0.05,
+                          height: displayHeight(context) * 0.06,
                           width: displayWidth(context) * 0.98,
                           child: Padding(
                             padding: const EdgeInsets.only(left:12.0,right: 12.0,top: 2.0,bottom: 2.0),
