@@ -91,7 +91,7 @@ class _homeState extends State<home> {
       body: SafeArea(
           top: true,
           child: Container(
-            height: displayHeight(context) - kToolbarHeight,
+            height: displayHeight(context),
             width: displayWidth(context),
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -109,11 +109,11 @@ class _homeState extends State<home> {
                     alignment: Alignment.center,
                     children: [
                       Positioned(
-                          top: 0,
+                          top: displayHeight(context)*0.01,
                           child: Container(
-                            height: displayHeight(context) * 0.18,
+                            height: displayHeight(context) * 0.1,
                             width: displayWidth(context) * 0.57,
-                            //color: Colors.black87,
+                           // color: Colors.black87,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -131,13 +131,13 @@ class _homeState extends State<home> {
                             ),
                           )),
                       Positioned(
-                        top: displayHeight(context) * 0.1775,
+                        top: displayHeight(context) * 0.122,
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.black38,
                             borderRadius: BorderRadius.circular(15.0),
                           ),
-                          height: displayHeight(context) * 0.05,
+                          height: displayHeight(context) * 0.06,
                           width: displayWidth(context) * 0.98,
                           child: Padding(
                             padding: const EdgeInsets.only(left:12.0,right: 12.0,top: 2.0,bottom: 2.0),
@@ -152,7 +152,7 @@ class _homeState extends State<home> {
                         ),
                       ),
                       Positioned(
-                        top: displayHeight(context) * 0.25,
+                        top: displayHeight(context) * 0.2,
                         child: screens[currentMenu],
                       ),
                     ],

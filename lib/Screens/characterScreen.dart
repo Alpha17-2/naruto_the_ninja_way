@@ -35,9 +35,9 @@ class _characterScreenState extends State<characterScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: displayHeight(context) * 0.65,
+      height: displayHeight(context) * 0.8,
       width: displayWidth(context),
-      // color: Colors.red,
+       //color: Colors.red,
       child: Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0),
         child: Stack(
@@ -99,35 +99,38 @@ class _characterScreenState extends State<characterScreen> {
               ),
             ),
             Positioned(
-              top: displayHeight(context) * 0.073,
+              top: displayHeight(context) * 0.07,
               child: Container(
-                height: displayHeight(context) * 0.57,
+                height: displayHeight(context) * 0.68,
                 width: displayWidth(context) * 0.9,
-                // color: Colors.black45,
+                // color: Colors.yellow,
                 child: displayCharacterList.length == 0
                     ? Center(
                         child: Text('Oops ! No such character found'),
                       )
-                    : ListView.builder(
-                        itemBuilder: (context, index) {
-                          return AnimationConfiguration.staggeredList(
-                            position: index,
-                            duration: Duration(microseconds: 550000),
-                            child: FlipAnimation(
-                              child: SlideAnimation(
-                                curve: Curves.easeInExpo,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(bottom: 2),
-                                  child: displaySingleCharacter(
-                                    characterIndex: displayCharacterList[index].id,
+                    : Padding(
+                      padding: const EdgeInsets.all(0),
+                      child: ListView.builder(
+                          itemBuilder: (context, index) {
+                            return AnimationConfiguration.staggeredList(
+                              position: index,
+                              duration: Duration(microseconds: 550000),
+                              child: FlipAnimation(
+                                child: SlideAnimation(
+                                  curve: Curves.easeInExpo,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top:8.0,bottom: 8.0),
+                                    child: displaySingleCharacter(
+                                        characterIndex: displayCharacterList[index].id,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                        itemCount: displayCharacterList.length,
-                      ),
+                            );
+                          },
+                          itemCount: displayCharacterList.length,
+                        ),
+                    ),
               ),
             ),
           ],
