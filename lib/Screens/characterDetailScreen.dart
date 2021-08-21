@@ -86,6 +86,12 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
       fontWeight: FontWeight.w700,
       fontFamily: 'Acme',
     );
+    final RichText heightText = RichText(text: TextSpan(
+      children: [
+        TextSpan(text: "Height : ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500)),
+        TextSpan(text: c.height,style: TextStyle(color: Colors.black38,fontWeight: FontWeight.bold)),
+      ]
+    ));
     return Scaffold(
       body: Container(
         height: displayHeight(context),
@@ -110,14 +116,14 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                 alignment: Alignment.center,
                 children: [
                   Positioned(
-                      bottom: displayHeight(context) * 0.15,
+                      bottom: displayHeight(context) * 0.3,
                       child: Container(
-                        height: displayHeight(context) * 0.8,
+                        height: displayHeight(context) * 0.73,
                         width: displayWidth(context),
-                        //color: Colors.black38,
+                        //color: Colors.red,
                         child: CarouselSlider(
                           options: CarouselOptions(
-                            height: displayHeight(context) * 0.7,
+                            height: displayHeight(context) * 0.68,
                             aspectRatio: 16 / 9,
                             viewportFraction: 2.5,
                             initialPage: 0,
@@ -151,14 +157,32 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                         color: Colors.black,
                         onPressed: () => Navigator.pop(context),
                       )),
+
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                    padding: EdgeInsets.only(
+                        left: 12, top: 15, right: 12, bottom: 12),
+                    height: displayHeight(context) * 0.5,
+                    width: displayWidth(context) * 0.98,
+                    decoration: BoxDecoration(
+                      color: Colors.white70,
+                      borderRadius:
+                      BorderRadius.only(topLeft: Radius.circular(50.0)),
+                      border: Border.all(
+                          color: Color(0xfbDAA521),
+                          width: displayWidth(context) * 0.025),
+                    ),),
+                  ),
                   Positioned(
                     right: 0,
                     bottom: 0,
                     child: Container(
                       padding: EdgeInsets.only(
                           left: 12, top: 15, right: 12, bottom: 12),
-                      height: displayHeight(context) * 0.35,
-                      width: displayWidth(context) * 0.95,
+                      height: displayHeight(context) * 0.5,
+                      width: displayWidth(context) * 0.98,
                       decoration: BoxDecoration(
                         color: Colors.white70,
                         borderRadius:
@@ -238,16 +262,28 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                             endIndent: displayWidth(context) * 0.1,
                           ),
                           Container(
-                            height: displayHeight(context) * 0.16,
-                            width: displayWidth(context) * 0.85,
-                            color: Colors.white24,
+                            height: displayHeight(context) * 0.34,
+                            width: displayWidth(context) * 0.84,
+                            //color: Colors.red,
                             child: SingleChildScrollView(
-                              child: Text(
-                                c.caseStudy,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    wordSpacing: 1.5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      heightText,
+                                    ],
+                                  ),
+                                  Text(
+                                    c.caseStudy,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                        wordSpacing: 1.5),
+                                  ),
+                                ],
+
                               ),
                             ),
                           ),
@@ -260,7 +296,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                       right: displayWidth(context) * 0.07,
                       child: Image.asset(
                         'images/general/kunai2.png',
-                        height: displayHeight(context) * 0.045,
+                        height: displayHeight(context) * 0.03,
                         fit: BoxFit.fill,
                       )),
                   Positioned(
@@ -268,7 +304,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                       right: displayWidth(context) * 0.035,
                       child: Image.asset(
                         'images/general/kunai3.png',
-                        width: displayHeight(context) * 0.045,
+                        width: displayHeight(context) * 0.03,
                         fit: BoxFit.fill,
                       )),
                 ],
