@@ -17,11 +17,11 @@ class character {
   final String caseStudy;
   final List<String> images;
   final String villageSymbol;
-  final String drank;
-  final String crank;
-  final String brank;
-  final String arank;
-  final String srank;
+  final double drank;
+  final double crank;
+  final double brank;
+  final double arank;
+  final double srank;
 
 
 
