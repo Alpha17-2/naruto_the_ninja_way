@@ -26,55 +26,6 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
       height: 6,
     ),
   );
-  final List<String> categories = [
-    'Details',
-    'Ninja Way',
-    'Missions',
-    'About',
-  ];
-
-  displayMenu(int index) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 6.0),
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            currentCategory = index;
-          });
-        },
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                colors: (currentCategory == index)
-                    ? [
-                        Colors.red[200],
-                        Colors.red[300],
-                        Colors.red[400],
-                      ]
-                    : [
-                        Colors.transparent,
-                        Colors.transparent,
-                      ],
-              )),
-          child: Center(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(top: 10.0, bottom: 10, right: 16, left: 16),
-              child: Text(
-                categories[index],
-                style: TextStyle(
-                    fontSize: displayWidth(context) * 0.036,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,42 +33,110 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
         listOfCharacters().allCharacters[widget.indexOfCharacter];
     final myTextStyle = TextStyle(
       color: Colors.indigo[800],
-      fontSize: displayWidth(context) * 0.04,
+      fontSize: displayWidth(context) * 0.045,
       fontWeight: FontWeight.w700,
       fontFamily: 'Acme',
     );
+    final RichText heightText = RichText(
+        text: TextSpan(children: [
+      TextSpan(
+          text: "Height : ",
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: displayWidth(context) * 0.043)),
+      TextSpan(
+          text: c.height,
+          style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+              fontSize: displayWidth(context) * 0.043)),
+    ]));
+    final RichText weightText = RichText(
+        text: TextSpan(children: [
+      TextSpan(
+          text: "Weight : ",
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: displayWidth(context) * 0.043)),
+      TextSpan(
+          text: c.weight,
+          style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+              fontSize: displayWidth(context) * 0.043)),
+    ]));
+    final RichText birthdayText = RichText(
+        text: TextSpan(children: [
+      TextSpan(
+          text: "Birthday : ",
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: displayWidth(context) * 0.043)),
+      TextSpan(
+          text: c.dob,
+          style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+              fontSize: displayWidth(context) * 0.043)),
+    ]));
+    final RichText SignatureMoveText = RichText(
+        text: TextSpan(children: [
+          TextSpan(
+              text: "Siganture move : ",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: displayWidth(context) * 0.043)),
+          TextSpan(
+              text: c.signatureMove,
+              style: TextStyle(
+                  color: Colors.teal[800],
+                  fontWeight: FontWeight.bold,
+                  //fontFamily: 'Naruto',
+                  fontSize: displayWidth(context) * 0.043)),
+        ]));
+    final RichText QuoteText = RichText(
+        text: TextSpan(children: [
+          TextSpan(
+              text: "Qoute : ",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: displayWidth(context) * 0.043)),
+          TextSpan(
+              text: c.quote,
+              style: TextStyle(
+                  color: Colors.black54,
+                  fontWeight: FontWeight.bold,
+                  //fontFamily: 'Naruto',
+                  fontSize: displayWidth(context) * 0.043)),
+        ]));
     return Scaffold(
       body: Container(
         height: displayHeight(context),
         width: displayWidth(context),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/villages/rain.jpg'),
+            image: AssetImage('images/villages/leaf.jpg'),
             fit: BoxFit.cover,
           ),
           // border: Border.all(color: Colors.black54,width: displayWidth(context)*0.03),
         ),
-        child: ClipRRect(
-          // make sure we apply clip it properly
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-            child: Container(
-              height: displayHeight(context),
-              width: displayWidth(context),
-              alignment: Alignment.center,
-              // color: Colors.black54.withOpacity(0.0),
-              child: Stack(
+        child: Stack(
                 alignment: Alignment.center,
                 children: [
                   Positioned(
-                      bottom: displayHeight(context) * 0.15,
+                      bottom: displayHeight(context) * 0.3,
                       child: Container(
-                        height: displayHeight(context) * 0.8,
+                        height: displayHeight(context) * 0.7,
                         width: displayWidth(context),
-                        //color: Colors.black38,
+                        //color: Colors.red,
                         child: CarouselSlider(
                           options: CarouselOptions(
-                            height: displayHeight(context) * 0.7,
+                            height: displayHeight(context) * 0.68,
                             aspectRatio: 16 / 9,
                             viewportFraction: 2.5,
                             initialPage: 0,
@@ -148,7 +167,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                       child: IconButton(
                         iconSize: displayWidth(context) * 0.09,
                         icon: Icon(Ionicons.arrow_back_circle),
-                        color: Colors.black,
+                        color: Colors.white,
                         onPressed: () => Navigator.pop(context),
                       )),
                   Positioned(
@@ -157,15 +176,33 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                     child: Container(
                       padding: EdgeInsets.only(
                           left: 12, top: 15, right: 12, bottom: 12),
-                      height: displayHeight(context) * 0.35,
-                      width: displayWidth(context) * 0.95,
+                      height: displayHeight(context) * 0.5,
+                      width: displayWidth(context) * 0.98,
+                      decoration: BoxDecoration(
+                        color: Colors.white54,
+                        borderRadius:
+                            BorderRadius.only(topLeft: Radius.circular(50.0)),
+                        border: Border.all(
+                            color: Color(0xfbDAA521),
+                            width: displayWidth(context) * 0.025),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          left: 12, top: 15, right: 12, bottom: 12),
+                      height: displayHeight(context) * 0.5,
+                      width: displayWidth(context) * 0.98,
                       decoration: BoxDecoration(
                         color: Colors.white70,
                         borderRadius:
                             BorderRadius.only(topLeft: Radius.circular(50.0)),
                         border: Border.all(
                             color: Color(0xfbDAA521),
-                            width: displayWidth(context) * 0.025),
+                            width: displayWidth(context) * 0.015),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -233,21 +270,55 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                           ),
                           Divider(
                             color: Colors.red[700],
+                            height: displayHeight(context) * 0.03,
                             thickness: displayWidth(context) * 0.0045,
                             indent: displayWidth(context) * 0.1,
                             endIndent: displayWidth(context) * 0.1,
                           ),
                           Container(
-                            height: displayHeight(context) * 0.16,
-                            width: displayWidth(context) * 0.85,
-                            color: Colors.white24,
+                            height: displayHeight(context) * 0.34,
+                            width: displayWidth(context) * 0.84,
+                            //color: Colors.red,
                             child: SingleChildScrollView(
-                              child: Text(
-                                c.caseStudy,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    wordSpacing: 1.5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      heightText,
+                                      weightText,
+                                    ],
+                                  ),
+                                  Opacity(opacity: 0.0, child: Divider(
+                                    height: displayHeight(context)*0.01,
+                                  )),
+                                  birthdayText,
+                                  Opacity(opacity: 0.0, child: Divider(
+                                    height: displayHeight(context)*0.01,
+                                  )),
+                                  SignatureMoveText,
+                                  Opacity(opacity: 0.0, child: Divider(
+                                    height: displayHeight(context)*0.01,
+                                  )),
+                                  QuoteText,
+                                  Text(
+                                    'Character Info',
+                                    style: TextStyle(
+                                        color: Colors.red[800],
+                                        fontSize: displayWidth(context) * 0.045,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    c.caseStudy,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                        wordSpacing: 1.5),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -260,7 +331,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                       right: displayWidth(context) * 0.07,
                       child: Image.asset(
                         'images/general/kunai2.png',
-                        height: displayHeight(context) * 0.045,
+                        height: displayHeight(context) * 0.03,
                         fit: BoxFit.fill,
                       )),
                   Positioned(
@@ -268,15 +339,12 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                       right: displayWidth(context) * 0.035,
                       child: Image.asset(
                         'images/general/kunai3.png',
-                        width: displayHeight(context) * 0.045,
+                        width: displayHeight(context) * 0.03,
                         fit: BoxFit.fill,
                       )),
                 ],
               ),
             ),
-          ),
-        ),
-      ),
     );
   }
 }
