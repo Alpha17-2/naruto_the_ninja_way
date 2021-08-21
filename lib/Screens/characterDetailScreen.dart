@@ -189,7 +189,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                             BorderRadius.only(topLeft: Radius.circular(50.0)),
                         border: Border.all(
                             color: Color(0xfbDAA521),
-                            width: displayWidth(context) * 0.025),
+                            width: displayWidth(context) * 0.015),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
