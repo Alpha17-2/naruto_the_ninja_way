@@ -134,7 +134,7 @@ class _homeState extends State<home> {
                         top: displayHeight(context) * 0.122,
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.black38,
+                            //color: Colors.black38,
                             borderRadius: BorderRadius.circular(15.0),
                           ),
                           height: displayHeight(context) * 0.06,
