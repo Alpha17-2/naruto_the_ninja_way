@@ -4,7 +4,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
-import 'package:naruto_the_ninja_way/Helper/widgets.dart';
 import 'package:naruto_the_ninja_way/Models/character.dart';
 import 'package:naruto_the_ninja_way/Providers/listOfCharacters.dart';
 
@@ -450,10 +449,16 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                                   fontSize: displayWidth(context) * 0.045,
                                   fontWeight: FontWeight.bold),
                             ),
+                            Opacity(
+                                opacity: 0.0,
+                                child: Divider(
+                                  height: displayHeight(context) * 0.005,
+                                )),
                             Text(
                               c.caseStudy,
                               style: TextStyle(
                                   color: Colors.black,
+                                  fontSize: displayWidth(context)*0.036,
                                   fontWeight: FontWeight.w500,
                                   wordSpacing: 1.5),
                             ),

@@ -127,8 +127,34 @@ class listOfCharacters {
       age: "20",
       coverImage: 'images/characters/Akatsuchi/coverImage.jpg',
       id: 3,
-
     ),
+    character(
+      id: 4,
+      centerVillageSymbol: 'images/villages/mistCenter.png',
+      coverImage: 'images/characters/Jinin/cover.jpg',
+      age: "NA",
+      caseStudy: "Jinin Akebino was a jounin-level shinobi of Kirigakure, and a member of the previous generation of the Seven Ninja Swordsmen of the Mist.",
+      clan: "Akebino",
+      firstAppearance: "NA",
+      images: [
+        'images/characters/Jinin/1.png'
+      ],
+      name: "Akebino Jinin",
+      quote: "There're things in this world that even the best shinobi isn't able to protect. Learn it before it's too late. A shinobi protected by the water's shadow can't carry this illusion forever",
+      rank: "Jounin",
+      sex: "Male",
+      signatureMove: "NA",
+      village: "Mist",
+      villageSymbol: "images/villages/mist_headband.gif",
+      dob: "September 25",
+      height: "179 cm",
+      arank: -1,
+      brank: -1,
+      crank: -1,
+      drank: -1,
+      srank: -1,
+      weight: "92.5 kg",
+    )
   ];
 
   List<character> get allCharacters {
