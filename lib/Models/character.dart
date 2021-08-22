@@ -2,6 +2,7 @@
 class character {
   final String name;
   final int id;
+  final String centerVillageSymbol;
   final String height;
   final String weight;
   final String dob;
@@ -23,14 +24,13 @@ class character {
   final double arank;
   final double srank;
 
-
-
   character({
     this.name,
     this.id,
     this.brank,
     this.crank,
     this.drank,
+    this.centerVillageSymbol,
     this.arank,
     this.srank,
     this.height,

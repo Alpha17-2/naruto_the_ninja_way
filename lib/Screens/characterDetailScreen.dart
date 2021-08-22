@@ -131,6 +131,22 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
               //fontFamily: 'Naruto',
               fontSize: displayWidth(context) * 0.043)),
     ]));
+    final RichText firstAppearanceText = RichText(
+        text: TextSpan(children: [
+      TextSpan(
+          text: "First Appearance : ",
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+              fontSize: displayWidth(context) * 0.043)),
+      TextSpan(
+          text: c.firstAppearance,
+          style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+              //fontFamily: 'Naruto',
+              fontSize: displayWidth(context) * 0.04)),
+    ]));
     final Map<String, double> missionMap = {
       'S': c.srank,
       'A': c.arank,
@@ -144,7 +160,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
         width: displayWidth(context),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/villages/leaf.jpg'),
+            image: AssetImage('images/general/cover.jpg'),
             fit: BoxFit.cover,
           ),
           // border: Border.all(color: Colors.black54,width: displayWidth(context)*0.03),
@@ -194,6 +210,14 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                   onPressed: () => Navigator.pop(context),
                 )),
             Positioned(
+                top: displayHeight(context) * 0.05,
+                right: displayWidth(context) * 0.04,
+                child: Image.asset(
+                  c.centerVillageSymbol,
+                  height: displayHeight(context) * 0.06,
+                  fit: BoxFit.fill,
+                )),
+            Positioned(
               right: 0,
               bottom: 0,
               child: Container(
@@ -232,10 +256,14 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                   children: [
                     Row(
                       children: [
-                        Image.asset(
-                          'images/villages/leaf.png',
-                          height: displayHeight(context) * 0.045,
-                          fit: BoxFit.fill,
+                        ClipRRect(
+                          child: Image.asset(
+                            c.villageSymbol,
+                            width: displayWidth(context) * 0.18,
+                            height: displayHeight(context) * 0.04,
+                            fit: BoxFit.fill,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         Text(
                           c.name,
@@ -299,7 +327,7 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                       endIndent: displayWidth(context) * 0.1,
                     ),
                     Container(
-                      height: displayHeight(context) * 0.34,
+                      height: displayHeight(context) * 0.342,
                       width: displayWidth(context) * 0.84,
                       //color: Colors.red,
                       child: SingleChildScrollView(
@@ -326,6 +354,12 @@ class _charcterDetailScreenState extends State<charcterDetailScreen> {
                                 birthdayText,
                               ],
                             ),
+                            Opacity(
+                                opacity: 0.0,
+                                child: Divider(
+                                  height: displayHeight(context) * 0.01,
+                                )),
+                            firstAppearanceText,
                             Opacity(
                                 opacity: 0.0,
                                 child: Divider(
