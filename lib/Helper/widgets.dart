@@ -124,3 +124,28 @@ twoTexts(BuildContext ctx, String first, String second) {
   );
 }
 
+Widget clanCard(BuildContext context,String clanName,String clanImage,String standingMember){
+  return Container(
+    //color: Colors.white,
+    child: Stack(
+      alignment: Alignment.center,
+      children: [
+        Positioned.fill(child:  Opacity(opacity: 0.88,child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+            child: Image.asset(clanImage,fit: BoxFit.cover,)),),
+        ),
+        Positioned(
+          bottom: 0.0,
+            child: Container(
+          height: displayHeight(context)*0.06,
+          width: displayWidth(context)*0.455,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+          ),
+        ))
+      ],
+    ),
+  );
+}
+
