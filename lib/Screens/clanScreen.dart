@@ -15,14 +15,14 @@ class clanScreeen extends StatelessWidget {
     'images/Clans/sarutobi.jpg',
   ];
   final List<String> clanName = [
-    'Senju Clan',
-    'Uchiha Clan',
-    'Uzumaki Clan',
-    'Akimichi Clan',
-    'Hyuga Clan',
-    'Aburame Clan',
-    'Nara Clan',
-    'Sarutobi Clan',
+    'Senju',
+    'Uchiha',
+    'Uzumaki',
+    'Akimichi',
+    'Hyuga',
+    'Aburame',
+    'Nara',
+    'Sarutobi',
   ];
   final List<String> clanStandingMember = [
     'images/Clans/hashirama.png',
@@ -34,25 +34,44 @@ class clanScreeen extends StatelessWidget {
     'images/Clans/shikamaru.png',
     'images/Clans/sarutobiCharcter.png',
   ];
+
+
   @override
   Widget build(BuildContext context) {
+    final List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
+      StaggeredTile.count(2, 2),
+      StaggeredTile.count(2, 3),
+      StaggeredTile.count(2, 2.5),
+      StaggeredTile.count(2, 2.8),
+      StaggeredTile.count(2, 3),
+      StaggeredTile.count(2, 2),
+      StaggeredTile.count(2, 3),
+      StaggeredTile.count(2, 4),
+    ];
+    final List<Widget> _tiles = [
+      clanCard(context,clanName[0],clanImages[0],clanStandingMember[0]),
+      clanCard(context, clanName[1], clanImages[1], clanStandingMember[1]),
+      clanCard(context,clanName[2],clanImages[2],clanStandingMember[2]),
+      clanCard(context, clanName[3], clanImages[3], clanStandingMember[3]),
+      clanCard(context, clanName[4], clanImages[4], clanStandingMember[4]),
+      clanCard(context, clanName[5], clanImages[5], clanStandingMember[5]),
+      clanCard(context, clanName[6], clanImages[6], clanStandingMember[6]),
+      clanCard(context, clanName[7], clanImages[7], clanStandingMember[7]),
+    ];
     return Container(
       height: displayHeight(context) * 0.71,
       width: displayWidth(context),
       //color: Colors.yellow,
       child: Padding(
-        padding: const EdgeInsets.only(left:10.0,right: 10.0),
-        child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //childAspectRatio: 0.4,
-          crossAxisCount: 2,
-          //mainAxisExtent: 10,
-          crossAxisSpacing: 14,
-          mainAxisSpacing: 16,
-        ), itemBuilder: (context, index) {
-          return clanCard(context,clanName[index],clanImages[index],clanStandingMember[index]);
-        },
-          itemCount: clanName.length,
-        )
+        padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+        child: StaggeredGridView.count(
+          crossAxisCount: 4,
+          staggeredTiles: _staggeredTiles,
+          mainAxisSpacing: 18,
+          crossAxisSpacing: 15,
+          padding: const EdgeInsets.all(4),
+          children: _tiles,
+        ),
       ),
     );
   }
