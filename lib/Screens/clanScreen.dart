@@ -9,8 +9,8 @@ class clanScreeen extends StatelessWidget {
     'images/Clans/uchiha.jpg',
     'images/Clans/uzumaki.jpg',
     'images/Clans/akimichi.jpg',
-    'images/Clans/aburame.jpg',
     'images/Clans/hyuga.jpg',
+    'images/Clans/aburame.jpg',
     'images/Clans/nara.jpg',
     'images/Clans/sarutobi.jpg',
   ];
@@ -49,14 +49,14 @@ class clanScreeen extends StatelessWidget {
       StaggeredTile.count(2, 4),
     ];
     final List<Widget> _tiles = [
-      clanCard(context,clanName[0],clanImages[0],clanStandingMember[0]),
-      clanCard(context, clanName[1], clanImages[1], clanStandingMember[1]),
-      clanCard(context,clanName[2],clanImages[2],clanStandingMember[2]),
-      clanCard(context, clanName[3], clanImages[3], clanStandingMember[3]),
-      clanCard(context, clanName[4], clanImages[4], clanStandingMember[4]),
-      clanCard(context, clanName[5], clanImages[5], clanStandingMember[5]),
-      clanCard(context, clanName[6], clanImages[6], clanStandingMember[6]),
-      clanCard(context, clanName[7], clanImages[7], clanStandingMember[7]),
+      clanCard(context,clanName[0],clanImages[0],Colors.black,clanStandingMember[0]),
+      clanCard(context, clanName[1], clanImages[1],Colors.red[800], clanStandingMember[1]),
+      clanCard(context,clanName[2],clanImages[2],Colors.orange[800],clanStandingMember[2]),
+      clanCard(context, clanName[3], clanImages[3],Colors.pink[600], clanStandingMember[3]),
+      clanCard(context, clanName[4], clanImages[4],Colors.green[600], clanStandingMember[4]),
+      clanCard(context, clanName[5], clanImages[5],Colors.black54, clanStandingMember[5]),
+      clanCard(context, clanName[6], clanImages[6],Colors.deepPurple, clanStandingMember[6]),
+      clanCard(context, clanName[7], clanImages[7],Colors.green[400], clanStandingMember[7]),
     ];
     return Container(
       height: displayHeight(context) * 0.71,

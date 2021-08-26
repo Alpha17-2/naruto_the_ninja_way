@@ -114,7 +114,7 @@ twoTexts(BuildContext ctx, String first, String second) {
   );
 }
 
-Widget clanCard(BuildContext context, String clanName, String clanImage,
+Widget clanCard(BuildContext context, String clanName, String clanImage,Color color,
     String standingMember) {
   return Container(
     //color: Colors.white,
@@ -157,6 +157,7 @@ Widget clanCard(BuildContext context, String clanName, String clanImage,
               width: displayWidth(context) * 0.25,
               // color: Colors.red,
               child: FadeInImage(
+                fadeInCurve: Curves.easeInExpo,
                 placeholder: AssetImage(standingMember),
                 fit: BoxFit.fitHeight,
                 image: AssetImage(standingMember),
@@ -173,8 +174,10 @@ Widget clanCard(BuildContext context, String clanName, String clanImage,
                 child: Text(
                   clanName,
                   style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: displayWidth(context) * 0.038,
+                      color: color,
+                      fontFamily: 'Lobster',
+                      letterSpacing: 1.0,
+                      fontSize: displayWidth(context) * 0.042,
                       fontWeight: FontWeight.bold),
                 ),
               ),
