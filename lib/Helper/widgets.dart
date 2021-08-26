@@ -28,16 +28,17 @@ class displaySingleCharacter extends StatelessWidget {
         height: displayHeight(context) * 0.25,
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(coverImage),fit: BoxFit.cover,
+              image: AssetImage(coverImage),
+              fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(30),
-            border: Border.all(color: Colors.black54,width: displayWidth(context)*0.02)
-        ),
+            border: Border.all(
+                color: Colors.black54, width: displayWidth(context) * 0.02)),
         child: Stack(
           alignment: Alignment.center,
           children: [
             Positioned(
-              // opacity
+                // opacity
                 top: 0,
                 child: Container(
                   width: displayWidth(context) * 0.86,
@@ -47,21 +48,19 @@ class displaySingleCharacter extends StatelessWidget {
                     gradient: LinearGradient(
                       end: const Alignment(0, 0.4),
                       begin: const Alignment(0.0, 0.15),
-                      colors:<Color>[
+                      colors: <Color>[
                         Color(0xfb1a1a1a).withOpacity(0.0),
                         Color(0xfb1a1a1a).withOpacity(0.0),
                         Color(0xfb1a1a1a).withOpacity(0.8),
-
                       ],
                     ),
                     borderRadius: BorderRadius.circular(30),
                   ),
                 )),
-
             Positioned(
               // title
-              bottom: displayHeight(context)*0.03,
-              right: displayWidth(context)*0.06,
+              bottom: displayHeight(context) * 0.03,
+              right: displayWidth(context) * 0.06,
               child: Text(
                 name,
                 style: TextStyle(
@@ -70,12 +69,12 @@ class displaySingleCharacter extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   //fontFamily: 'BreeSerif',
                 ),
-              ),),
-
+              ),
+            ),
             Positioned(
               // village
-              bottom: displayHeight(context)*0.01,
-              right: displayWidth(context)*0.06,
+              bottom: displayHeight(context) * 0.01,
+              right: displayWidth(context) * 0.06,
               child: Text(
                 "${c.village} village",
                 style: TextStyle(
@@ -83,20 +82,11 @@ class displaySingleCharacter extends StatelessWidget {
                   fontSize: displayWidth(context) * 0.038,
                   //fontFamily: 'BreeSerif',
                 ),
-              ),)
+              ),
+            )
           ],
         ),
       ),
-
-
-
-
-
-
-
-
-
-
     );
   }
 }
@@ -118,9 +108,78 @@ twoTexts(BuildContext ctx, String first, String second) {
           TextSpan(
             text: second,
             style:
-            TextStyle(fontWeight: FontWeight.w400, color: Colors.black87),
+                TextStyle(fontWeight: FontWeight.w400, color: Colors.black87),
           ),
         ]),
   );
 }
 
+Widget clanCard(BuildContext context, String clanName, String clanImage,
+    String standingMember) {
+  return Container(
+    //color: Colors.white,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(30),
+    ),
+    child: Stack(
+      alignment: Alignment.center,
+      children: [
+        Positioned.fill(
+          child: Opacity(
+            alwaysIncludeSemantics: true,
+            opacity: 0.85,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.asset(
+                  clanImage,
+                  fit: BoxFit.cover,
+                )),
+          ),
+        ),
+        Positioned(
+            bottom: 0.0,
+            child: Container(
+              height: displayHeight(context) * 0.06,
+              width: displayWidth(context) * 0.45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30)),
+              ),
+            )),
+        Positioned(
+            bottom: 0,
+            left: 0,
+            child: Container(
+              height: displayHeight(context) * 0.18,
+              width: displayWidth(context) * 0.25,
+              // color: Colors.red,
+              child: FadeInImage(
+                placeholder: AssetImage(standingMember),
+                fit: BoxFit.fitHeight,
+                image: AssetImage(standingMember),
+              ),
+            )),
+        Positioned(
+            bottom: 0,
+            left: displayWidth(context) * 0.24,
+            child: Container(
+              height: displayHeight(context) * 0.06,
+              width: displayWidth(context) * 0.19,
+              //color: Colors.red,
+              child: Center(
+                child: Text(
+                  clanName,
+                  style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: displayWidth(context) * 0.038,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ))
+      ],
+    ),
+  );
+}
