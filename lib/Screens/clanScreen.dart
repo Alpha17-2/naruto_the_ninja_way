@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:naruto_the_ninja_way/Helper/DeviceSize.dart';
 import 'package:naruto_the_ninja_way/Helper/widgets.dart';
+import 'package:naruto_the_ninja_way/Screens/allClans/senjuClan.dart';
 
 class clanScreeen extends StatelessWidget {
   final List<String> clanImages = [
@@ -49,7 +50,14 @@ class clanScreeen extends StatelessWidget {
       StaggeredTile.count(2, 4),
     ];
     final List<Widget> _tiles = [
-      clanCard(context,clanName[0],clanImages[0],Colors.black,clanStandingMember[0]),
+      Hero(
+        tag: "1",
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>senjuClan()));
+          },
+            child: clanCard(context,clanName[0],clanImages[0],Colors.black,clanStandingMember[0])),
+      ),
       clanCard(context, clanName[1], clanImages[1],Colors.red[800], clanStandingMember[1]),
       clanCard(context,clanName[2],clanImages[2],Colors.orange[800],clanStandingMember[2]),
       clanCard(context, clanName[3], clanImages[3],Colors.pink[600], clanStandingMember[3]),
