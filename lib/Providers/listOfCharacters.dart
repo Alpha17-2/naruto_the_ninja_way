@@ -200,7 +200,7 @@ class listOfCharacters {
       coverImage: 'images/characters/Chouza/cover.jpg',
       age: "38",
       caseStudy: "A Jounin from Leaf Village, Chouza hails from the Akimichi Clan, known for their ability to manipulate their size. Akimichi Chouza is the father of Akimichi Chouji.",
-      clan: "Akimichi",
+      clan: "Akimichi ",
       firstAppearance: "Naruto Episode 59",
       images: [
         'images/characters/Chouza/1.png',
