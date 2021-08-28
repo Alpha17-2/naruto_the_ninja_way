@@ -190,6 +190,37 @@ class listOfCharacters {
       crank: 13,
       dob: "May 1",
     ),
+
+    character(
+      centerVillageSymbol: 'images/villages/leafCenter.png',
+      village: 'Leaf',
+      dob: 'April 22',
+      crank: -1,
+      id: 6,
+      coverImage: 'images/characters/Chouza/cover.jpg',
+      age: "38",
+      caseStudy: "A Jounin from Leaf Village, Chouza hails from the Akimichi Clan, known for their ability to manipulate their size. Akimichi Chouza is the father of Akimichi Chouji.",
+      clan: "Akimichi",
+      firstAppearance: "Naruto Episode 59",
+      images: [
+        'images/characters/Chouza/1.png',
+        'images/characters/Chouza/2.png',
+        'images/characters/Chouza/3.png',
+      ],
+      name: "Akimichi Chouza",
+      quote: "Chouji, you've got a kinder heart than anyone I know. There will be someone who will see that in you and become your friend. If you meet him, treat him as your best friend, and become comrades who will trust in each other more than anything else.",
+      rank: "Jounin",
+      sex: "Male",
+      signatureMove: "Multi-Size no Jutsu",
+      villageSymbol: 'images/villages/leaf_headband.gif',
+      height: '183 cm',
+      arank: -1,
+      brank: -1,
+      drank: -1,
+      srank: -1,
+      weight: "120 kg",
+
+    ),
   ];
 
   List<character> get allCharacters {
