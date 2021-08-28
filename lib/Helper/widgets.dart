@@ -177,7 +177,7 @@ Widget clanCard(BuildContext context, String clanName, String clanImage,Color co
                       color: color,
                       fontFamily: 'Lobster',
                       letterSpacing: 1.0,
-                      fontSize: displayWidth(context) * 0.042,
+                      fontSize: displayWidth(context) * 0.043,
                       fontWeight: FontWeight.bold),
                 ),
               ),
